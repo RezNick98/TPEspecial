@@ -12,10 +12,10 @@ $params = explode('/',$action);
 
 switch ($params[0]) {
     case 'home':
-        
+        $librosController->showBooks();
         break;
     
     default:
-        # code...
+        echo ('ERROR 404 not found');
         break;
 }
