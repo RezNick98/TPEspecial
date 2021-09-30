@@ -7,7 +7,7 @@ class librosView
     {
         $this->smarty = new Smarty();
     }
-    function getBooks($books){
+    function showHome($books,$autors){
         $html='<!DOCTYPE html>
         <html lang="en">
         <head>
@@ -35,7 +35,11 @@ class librosView
                 echo '</tr>';
             }
         echo '</table>';
-        
+            echo '<select>';
+                echo '<option>';
+                    
+                echo'</option>';
+            echo'</select>';
         '</body>
         </html>';
     }
