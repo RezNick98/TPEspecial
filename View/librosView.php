@@ -35,18 +35,9 @@ class librosView
                 echo '</tr>';
             }
         echo '</table>';
+        
         '</body>
         </html>';
     }
-    function getAutor($autores){
-        echo '<form>';
-            echo '<label>Buscar libro por autor</label>';
-            foreach ($autores as $autor) {
-                echo '<select name="Autor">';
-                    echo '<option>'.$autor->Nombre.''.$autor->Apellido.'</option>';
-                echo '</select>';
-            }
-        echo '</form>';
-    }
-}
 
+}
