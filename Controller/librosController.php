@@ -12,7 +12,6 @@ class librosController
     }
     function showBooks(){
         $books = $this->model->getBooks();
-        $autors = $this->model->getAutores();
-        $this->view->showHome($books,$autors);
+        $this->view->showHome($books);
     }
 }

@@ -7,7 +7,7 @@ class librosView
     {
         $this->smarty = new Smarty();
     }
-    function showHome($books,$autors){
+    function showHome($books){
         $html='<!DOCTYPE html>
         <html lang="en">
         <head>
@@ -20,22 +20,22 @@ class librosView
         <body>';
         echo $html;
         echo '<table>';
-        echo '<tr>';
-        echo '<th>'.'Id del libro '.'</th>';
-        echo '<th>'.'Titulo '.'</th>';
-        echo '<th>'.'Genero '.'</th>';
-        echo '<th>'.'Descripcion '.'</th>';
-        echo '</tr>';
-            foreach ($books as $book) {
-                echo '<tr>';
-                echo '<td>'.$book->id_libros.'</td>';
-                echo '<td>'.$book->Titulo.'</td>';
-                echo '<td>'.$book->Genero.'</td>';
-                echo '<td>'.$book->Descripcion.'</td>';
-                echo '</tr>';
-            }
+            echo '<tr>';
+                echo '<th>'.'Id del libro '.'</th>';
+                echo '<th>'.'Titulo '.'</th>';
+                echo '<th>'.'Genero '.'</th>';
+                echo '<th>'.'Descripcion '.'</th>';
+            echo '</tr>';
+                foreach ($books as $book) {
+                    echo '<tr>';
+                        echo '<td>'.$book->id_libros.'</td>';
+                        echo '<td>'.$book->Titulo.'</td>';
+                        echo '<td>'.$book->Genero.'</td>';
+                        echo '<td>'.$book->Descripcion.'</td>';
+                    echo '</tr>';
+                }
+        echo '</table>';
         '</body>
         </html>';
     }
-
 }
