@@ -34,12 +34,6 @@ class librosView
                 echo '<td>'.$book->Descripcion.'</td>';
                 echo '</tr>';
             }
-        echo '</table>';
-            echo '<select>';
-                echo '<option>';
-                    
-                echo'</option>';
-            echo'</select>';
         '</body>
         </html>';
     }
