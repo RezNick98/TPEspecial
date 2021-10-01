@@ -11,6 +11,8 @@ class autoresController
         $this->view = new librosView();
     }
     function showAutors(){
+        $autors = $this->model->getAutors();
+        $this->view->showAutors($autors);
 
     }
 }
