@@ -11,7 +11,7 @@ class autorsView
         echo "<form>";
             echo '<select>';
                 foreach ($autors as $autor) {
-                    echo "<option>".$autor->Nombre."</option>";
+                    echo "<option>".$autor->Nombre.' '.$autor->Apellido."</option>";
                 }
             echo'</select>';
         echo "<input type='submit' value='Filtrar' name='Filtrar'>";

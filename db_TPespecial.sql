@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 24, 2021 at 07:27 PM
+-- Generation Time: Oct 04, 2021 at 10:47 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.23
 
@@ -52,7 +52,28 @@ CREATE TABLE `Libros` (
   `Titulo` varchar(45) NOT NULL,
   `Genero` varchar(45) NOT NULL,
   `Descripcion` varchar(45) DEFAULT NULL,
-  `Id_autor` int(45) NOT NULL
+  `fk_Id_autor` int(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Libros`
+--
+
+INSERT INTO `Libros` (`id_libros`, `Titulo`, `Genero`, `Descripcion`, `fk_Id_autor`) VALUES
+(1, 'IT', 'Terror', 'LALALA', 1),
+(2, '10.000 leguas de viajes submarinas', 'Fantasia', 'LELELE', 2),
+(3, 'The shining', 'Terror', 'LILILILI', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Usuario`
+--
+
+CREATE TABLE `Usuario` (
+  `Id_usuario` int(11) NOT NULL,
+  `Email` varchar(200) NOT NULL,
+  `Password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -69,7 +90,23 @@ ALTER TABLE `Autores`
 -- Indexes for table `Libros`
 --
 ALTER TABLE `Libros`
-  ADD PRIMARY KEY (`Id_autor`);
+  ADD PRIMARY KEY (`id_libros`);
+
+--
+-- Indexes for table `Usuario`
+--
+ALTER TABLE `Usuario`
+  ADD PRIMARY KEY (`Id_usuario`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Usuario`
+--
+ALTER TABLE `Usuario`
+  MODIFY `Id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -79,7 +116,7 @@ ALTER TABLE `Libros`
 -- Constraints for table `Libros`
 --
 ALTER TABLE `Libros`
-  ADD CONSTRAINT `fk_Autores_Libros` FOREIGN KEY (`Id_autor`) REFERENCES `Autores` (`Id_autor`);
+  ADD CONSTRAINT `fk_Autores_Libros` FOREIGN KEY (`fk_Id_autor`) REFERENCES `Autores` (`Id_autor`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

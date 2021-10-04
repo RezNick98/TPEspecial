@@ -19,7 +19,7 @@ switch ($params[0]) {
         $autoresController->showAutors();
         break;
     case 'filterAutors':
-
+        
     break;
     default:
         echo ('ERROR 404 not found');

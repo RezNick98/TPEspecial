@@ -15,5 +15,6 @@ class autoresModel{
     function Join(){
         $query=$this->dbAutores->prepare("SELECT a.Nombre,a.Apellido,b.Titulo FROM Autores a INNER JOIN Libros b ON a.Id_autor = b.fk_Id_autor");
         $query->execute();
+
     }
 }

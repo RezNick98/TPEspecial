@@ -10,6 +10,7 @@ class autoresController
         $this->model= new autoresModel();
         $this->view = new autorsView();
     }
+    
     function showAutors(){
         $autors = $this->model->getAutors();
         $this->view->showAutors($autors);
