@@ -9,13 +9,18 @@ if(!empty($_GET['action'])){
 }
 
 $librosController = new librosController();
+$autoresController = new autoresController();
 $params = explode('/',$action);
 
 switch ($params[0]) {
     case 'home':
         $librosController->showHome();
         $librosController->showBooks();
+        $autoresController->showAutors();
         break;
+    case 'filterAutors':
+
+    break;
     default:
         echo ('ERROR 404 not found');
         break;

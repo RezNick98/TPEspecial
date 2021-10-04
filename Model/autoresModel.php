@@ -1,4 +1,5 @@
 <?php
+require_once 'Model/librosModel.php';
 class autoresModel{
     private $dbAutores;
     function __construct()
@@ -10,5 +11,9 @@ class autoresModel{
         $query->execute();
         $autors = $query->fetchAll(PDO::FETCH_OBJ);
         return $autors; 
+    }
+    function Join(){
+        $query=$this->dbAutores->prepare("SELECT a.Nombre,a.Apellido,b.Titulo FROM Autores a INNER JOIN Libros b ON a.Id_autor = b.fk_Id_autor");
+        $query->execute();
     }
 }

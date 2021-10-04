@@ -38,8 +38,5 @@ class librosView
                 echo '</tr>';
             }
         echo '</table>';
-            }
-            function showAutors($autors){
-                
-            }
-        }
+    }
+}
