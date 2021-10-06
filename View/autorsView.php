@@ -8,7 +8,7 @@ class autorsView
         $this->smarty=new Smarty();
     }
     function showAutors($autors){
-        echo "<form>";
+        echo "<form action=filterAutor method=POST>";
             echo '<select>';
                 foreach ($autors as $autor) {
                     echo "<option>".$autor->Nombre.' '.$autor->Apellido."</option>";

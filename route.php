@@ -18,7 +18,7 @@ switch ($params[0]) {
         $librosController->showBooks();
         $autoresController->showAutors();
         break;
-        case 'filtrar':
+        case 'filterAutor':
             if (isset($params[1])) {
                 $autoresController->filterAutors($params[1]);
                 $librosController->showBooks();
