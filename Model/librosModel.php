@@ -13,5 +13,5 @@ class librosModel
         $books = $query->fetchAll(PDO::FETCH_OBJ);
         return $books;
     }
-
+    
 }

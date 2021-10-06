@@ -14,7 +14,9 @@ class autorsView
                     echo "<option>".$autor->Nombre.' '.$autor->Apellido."</option>";
                 }
             echo'</select>';
-        echo "<input type='submit' value='Filtrar' name='Filtrar'>";
+            echo "<input type='submit' value='Filtrar' name='Filtrar'>";
         echo "</form>";
+    }
+    function filterAutor($autorByBook){
     }
 }

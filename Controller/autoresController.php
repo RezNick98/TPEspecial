@@ -15,7 +15,8 @@ class autoresController
         $autors = $this->model->getAutors();
         $this->view->showAutors($autors);
     }
-    function filterAutors(){
-        
+    function filterAutors($Id_autor){
+        $filter = $this->model->Join($Id_autor);
+        $this->view->filterAutor($filter);
     }
 }
