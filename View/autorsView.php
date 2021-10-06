@@ -17,6 +17,4 @@ class autorsView
             echo "<input type='submit' value='Filtrar' name='Filtrar'>";
         echo "</form>";
     }
-    function filterAutor($autorByBook){
-    }
 }
