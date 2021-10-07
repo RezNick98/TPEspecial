@@ -1,6 +1,6 @@
 <?php
-require_once "Model/autoresModel.php";
-require_once "View/autorsView.php";
+require_once "./Model/autoresModel.php";
+require_once "./View/autorsView.php";
 class autoresController
 {
     private $model;
@@ -15,8 +15,5 @@ class autoresController
         $autors = $this->model->getAutors();
         $this->view->showAutors($autors);
     }
-    function filterAutors($Id_autor){
-        $filter = $this->model->Join($Id_autor);
-        $this->view->filterAutor($filter);
-    }
+
 }

@@ -19,14 +19,7 @@ switch ($params[0]) {
         $autoresController->showAutors();
         break;
         case 'filterAutor':
-            if (isset($params[1])) {
-                $autoresController->filterAutors($params[1]);
-                $librosController->showBooks();
-            } else {
-                $librosController->showBooks();
-            }
-            
-    break;
+        break;
     default:
         echo ('ERROR 404 not found');
         break;
