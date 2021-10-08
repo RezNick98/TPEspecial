@@ -21,4 +21,13 @@ class homeView{
         $this->smarty->assign('autors', $autors);
         $this->smarty->display('templates/libros.tpl');
     }
+    function addBook(){
+        header('Location:'. BASE_URL .'home');
+    }
+    function addAutor(){
+        header('Location:'. BASE_URL .'home');
+    }
+    function showBooksAutor($items){
+        $this->smarty->assign('books',$items);
+    }
 }

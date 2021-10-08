@@ -28,5 +28,13 @@ class Controller{
         $autors = $this->modelAutores->getAutors();
         $this->view->showAutors($autors);
     }
+    function insertAutor(){
+        $this->modelAutores->insertAutor($_POST['Id_autor'],$_POST['Nombre'],$_POST['Apellido']);
+        $this->view->addAutor();
+    }
+    function showBooksByAutor($Id_autor){
+        $items=$this->modelAutores->Join($Id_autor);
+        $this->view->showBooksAutor($items);
+    }
 
 }

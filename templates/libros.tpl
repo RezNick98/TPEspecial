@@ -14,7 +14,19 @@
         </tr>
         {/foreach}
 </table>
-
+<fom action="addBook" method="POST">
+    <label>Id del nuevo libro</label><input type="number" name="Id_libro">
+    <label>Titulo del libro</label><input type="text" name="Titulo">
+    <label>Genero del libro</label><select><option></option></select>
+    <label>Descripcion del libro</label><input type="text" name"Descripcion">
+    <input type="submit" name="Enviar" value="Enviar">
+</fom>
+<form action="addAutor" method="POST">
+   <label>Id del nuevo autor</label> <input type="number" name='Id_autor'>
+   <label>Nombre del autor</label> <input type="text" name='Nombre' >
+    <label>Apellido del autor</label><input type="text" name='Apellido'>
+    <input type="submit" name="Enviar" value="Enviar">
+</form>
 <form action="filterAutor" method="POST">
         <select class="form-select mt-2" aria-label="Disabled select example">
         {foreach from=$autors item=$autor key=key name=name}    
