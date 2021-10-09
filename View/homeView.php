@@ -28,6 +28,11 @@ class homeView{
         header('Location:'. BASE_URL .'home');
     }
     function showBooksAutor($items){
-        $this->smarty->assign('books',$items);
+        $this->smarty->assign('items',$items);
+        $this->smarty->display('templates/autorAndBooks.tpl');
+    }
+    function showBookLibro($item){
+        $this->smarty->assign('item',$item);
+        $this->smarty->display('templates/libro.tpl');
     }
 }

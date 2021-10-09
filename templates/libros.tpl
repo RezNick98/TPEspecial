@@ -5,15 +5,18 @@
             <th>Titulo</th>
             <th>Genero</th>
             <th>Descripcion</th>
+            <th><hr></th>
         </tr>
         {foreach from=$books item=$book}
         <tr>
-            <td>{$book->Titulo}</td>
+            <td>{$book->Titulo|upper}</td>
             <td>{$book->Genero}</td>
-            <td>{$book->Descripcion}</td>
+            <td>{$book->Descripcion|lower|truncate:10}</td>
+            <td> <a href="viewDescripcion/{$book->id_libros}">Leer mas...</a> </td>
         </tr>
         {/foreach}
 </table>
+
 
 <div class="container">
     <fom action="addBook" method="POST">
@@ -31,7 +34,7 @@
     </form>
     <form action="filterAutor" method="POST">
         <select class="form-select mt-2" aria-label="Disabled select example">
-        {foreach from=$autors item=$autor key=key name=name}    
+        {foreach from=$autors item=$autor}  
             <option>{$autor->Apellido}, {$autor->Nombre}</option>
         {/foreach}
         </select>

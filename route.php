@@ -16,11 +16,14 @@ switch ($params[0]) {
     case 'home':
         $Controller->showHome();
         break;
-        case 'addAutor':
-            $Controller->insertAutor();
+    case 'addAutor':
+        $Controller->insertAutor();
             break;
-        case 'filterAutor':
-            $Controller->showBooksByAutor(1);
+    case 'filterAutor':
+        $Controller->showBooksByAutor($params[1]);
+        break;
+    case 'viewDescripcion':
+        $Controller->showBooksByTabla($params[1]);
         break;
     default:
         echo ('ERROR 404 not found');

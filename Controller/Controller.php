@@ -33,8 +33,12 @@ class Controller{
         $this->view->addAutor();
     }
     function showBooksByAutor($Id_autor){
-        $items=$this->modelAutores->Join($Id_autor);
+        $items=$this->modelAutores->getAutor($Id_autor);
         $this->view->showBooksAutor($items);
+    }
+    function showBooksByTabla($id_libro){
+        $item = $this->modelLibros->getBook($id_libro);
+        $this->view->showBookLibro($item);
     }
 
 }
