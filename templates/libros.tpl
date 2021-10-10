@@ -32,4 +32,15 @@
     </tbody>
 </table>
 
+<form action="reseña" method="post">
+        <p>Nombre: <input type="text" name="nombre"></p>
+        <p>Reseña: <textarea name="texto"cols="30" rows="1"></textarea></p>
+    <select name="select">
+        {foreach from=$autors item=$autor}    
+            <option value="{$autor->Id_autor}">{$autor->Nombre} {$autor->Apellido}</option>
+        {/foreach}
+    </select>
+        <input type="submit" value="Enviar">
+</form>
+
 {include file="templates/footer.tpl"}

@@ -27,6 +27,9 @@ switch ($params[0]) {
     case 'generosLibros':
         $Controller->showBooksByGenero($params[1]);
         break;
+    case 'reseña':
+        $Controller->addReseña();
+        break;
     default:
         echo ('ERROR 404 not found');
         break;

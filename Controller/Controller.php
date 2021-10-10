@@ -31,5 +31,7 @@ class Controller{
         $gen = $this->modelLibros->getLibrosGenero($genero);
         $this->view->showBooksGenero($gen);
     }
+    function addReseña(){
+    }
 
 }
