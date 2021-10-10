@@ -21,12 +21,6 @@ class homeView{
         $this->smarty->assign('autors', $autors);
         $this->smarty->display('templates/libros.tpl');
     }
-    function addBook(){
-        header('Location:'. BASE_URL .'home');
-    }
-    function addAutor(){
-        header('Location:'. BASE_URL .'home');
-    }
     function showBooksAutor($items){
         $this->smarty->assign('items',$items);
         $this->smarty->display('templates/autorAndBooks.tpl');
@@ -34,5 +28,9 @@ class homeView{
     function showBookLibro($item){
         $this->smarty->assign('item',$item);
         $this->smarty->display('templates/libro.tpl');
+    }
+    function showBooksGenero($genero){
+        $this->smarty->assign('genero', $genero);
+        $this->smarty->display('templates/genero.tpl');
     }
 }

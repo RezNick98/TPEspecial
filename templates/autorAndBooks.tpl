@@ -1,22 +1,26 @@
 {include file="templates/header.tpl"}
 
-<table class="table table-dark table-striped">
-        <tr>
+<table  class="table table-dark table-hover">
+        <thead>
             <th>Autor</th>
             <th>Libro</th>
             <th>Genero</th>
             <th>Descripcion</th>
             <th><hr></th>
-        </tr>
-        {foreach from=$items item=$item}
-        <tr>
-            <td>{$item->Apellido|upper}, {$item->Nombre}</td>
-            <td>{$item->Titulo}</td>
-            <td>{$item->Genero}</td>
-            <td>{$item->Descripcion|lower|truncate:10}</td>
-            <td> <a href="viewDescripcion/{$book->id_libros}">Leer mas...</a> </td>
-        </tr>
-        {/foreach}
+        </thead>
+            {foreach from=$items item=$item}
+        <tbody>
+            <tr>
+                <td>{$item->Apellido|upper}, {$item->Nombre}</td>
+                <td>{$item->Titulo}</td>
+                <td>{$item->Genero}</td>
+                <td>{$item->Descripcion|lower|truncate:20}</td>
+                <td> <a class="btn btn-warning" href="viewDescripcion/{$item->id_libros}">Leer mas...</a> </td>
+                </tr>
+            {/foreach}
+        </tbody>
 </table>
+
+<a href='home' class="btn btn-primary mt-5"> Volver al home </a>
 
 {include file="templates/footer.tpl"}

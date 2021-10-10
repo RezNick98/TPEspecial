@@ -11,19 +11,19 @@ $Controller = new Controller();
 
 
 $params = explode('/',$action);
-
+var_dump($params);
 switch ($params[0]) {
     case 'home':
         $Controller->showHome();
         break;
-    case 'addAutor':
-        $Controller->insertAutor();
-            break;
-    case 'filterAutor':
+    case 'autorLibros':
         $Controller->showBooksByAutor($params[1]);
         break;
     case 'viewDescripcion':
         $Controller->showBooksByTabla($params[1]);
+        break;
+    case 'generosLibros':
+        $Controller->showBooksByGenero($params[1]);
         break;
     default:
         echo ('ERROR 404 not found');

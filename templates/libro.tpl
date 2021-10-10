@@ -11,7 +11,8 @@
         <p>{$item->Descripcion}</p>
     </div>
 
-    <a href='home'  class="btn btn-primary mt-5"> Volver </a>
+    <a href='home' class="btn btn-primary mt-5"> Volver al home </a>
+
 </div>
 
 {include file="templates/footer.tpl"}

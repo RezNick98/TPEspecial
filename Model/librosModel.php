@@ -19,5 +19,11 @@ class librosModel
         $book = $sentencia->fetch(PDO::FETCH_OBJ);
         return $book;
     }
+    function getLibrosGenero($genero){
+        $sentencia = $this->dbLibros->prepare("SELECT * from Libros WHERE Genero = '$genero'");
+        $sentencia->execute();
+        $gen = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $gen;
+    }
     
 }
