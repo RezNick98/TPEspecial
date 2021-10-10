@@ -18,14 +18,14 @@
             <th>Titulo</th>
             <th>Genero</th>
             <th>Descripcion</th>
-            <th><hr></th>
+            <th></th>
         </thead>
         <tbody>
         {foreach from=$books item=$book}       
             <tr>
                 <td>{$book->Titulo|upper}</td>
                 <td>{$book->Genero}</td>
-                <td>{$book->Descripcion|lower|truncate:10}</td>
+                <td>{$book->Descripcion|truncate:10}</td>
                 <td> <a class="btn btn-warning" href="viewDescripcion/{$book->id_libros}">Leer mas...</a> </td>
             </tr>
         {/foreach}

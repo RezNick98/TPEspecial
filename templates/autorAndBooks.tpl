@@ -11,7 +11,7 @@
             {foreach from=$items item=$item}
         <tbody>
             <tr>
-                <td>{$item->Apellido|upper}, {$item->Nombre}</td>
+                <td>{$item->Apellido|Capitalize}, {$item->Nombre}</td>
                 <td>{$item->Titulo}</td>
                 <td>{$item->Genero}</td>
                 <td>{$item->Descripcion|lower|truncate:20}</td>

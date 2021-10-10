@@ -25,7 +25,7 @@ class Controller{
     }
     function showBooksByTabla($id_libro){
         $item = $this->modelLibros->getBook($id_libro);
-        $this->view->showBookLibro($item);
+        $this->view->showBook($item);
     }
     function showBooksByGenero($genero){
         $gen = $this->modelLibros->getLibrosGenero($genero);

@@ -15,7 +15,7 @@ class homeView{
     }
     function showBooks($books){
         $this->smarty->assign('books', $books);
-        $this->smarty->display('templates/libros.tpl');
+        $this->smarty->display('templates/libro.tpl');
     }
     function showAutors($autors){
         $this->smarty->assign('autors', $autors);
@@ -25,7 +25,7 @@ class homeView{
         $this->smarty->assign('items',$items);
         $this->smarty->display('templates/autorAndBooks.tpl');
     }
-    function showBookLibro($item){
+    function showBook($item){
         $this->smarty->assign('item',$item);
         $this->smarty->display('templates/libro.tpl');
     }

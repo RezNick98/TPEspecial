@@ -14,7 +14,7 @@ class librosModel
         return $books;
     }
     function getBook($id){
-        $sentencia = $this->dbLibros->prepare("select * from Libros WHERE id_libros=?");
+        $sentencia = $this->dbLibros->prepare("SELECT * FROM Libros WHERE id_libros=?");
         $sentencia->execute(array($id));
         $book = $sentencia->fetch(PDO::FETCH_OBJ);
         return $book;
