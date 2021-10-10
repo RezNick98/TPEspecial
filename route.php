@@ -1,5 +1,6 @@
 <?php
 require_once 'Controller/Controller.php';
+require_once 'Controller/loginController.php';
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':'.$_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 if(!empty($_GET['action'])){
     $action = $_GET['action'];
@@ -8,6 +9,7 @@ if(!empty($_GET['action'])){
 }
 
 $Controller = new Controller();
+$loginController = new loginController();
 
 
 $params = explode('/',$action);
