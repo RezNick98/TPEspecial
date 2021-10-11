@@ -16,23 +16,32 @@ class Controller{
 
     function showHome(){
         $this->checkLoggedIn();
+
         $books = $this->modelLibros->getBooks();
         $autors = $this->modelAutores->getAutors();
         $this->view->showHome($books, $autors);
     }
     function showBooksByAutor($Id_autor){
+        $this->checkLoggedIn();
+
         $itemsAutor=$this->modelAutores->getAutor($Id_autor);
         $this->view->showBooksAutor($itemsAutor);
     }
     function showBooksByTabla($id_libro){
+        $this->checkLoggedIn();
+
         $item = $this->modelLibros->getBook($id_libro);
         $this->view->showBook($item);
     }
     function showBooksByGenero($genero){
+        $this->checkLoggedIn();
+
         $gen = $this->modelLibros->getLibrosGenero($genero);
         $this->view->showBooksGenero($gen);
     }
     function addReseña(){
+        $this->checkLoggedIn();
+        
     }
 
     function checkLoggedIn(){
