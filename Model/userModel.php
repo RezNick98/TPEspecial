@@ -7,7 +7,7 @@ class userModel
         $this->dbUser=new PDO('mysql:host=localhost;'.'dbname=db_TPEspecial;charset=utf8', 'root', '');
     }
     function createUser($Email, $Password){
-        $sentencia = $this->dbUser->prepare("INSERT INTO usuario('Email,Password) VALUES(?, ?)");
+        $sentencia = $this->dbUser->prepare("INSERT INTO usuario('Email',Password) VALUES(?, ?)");
         $sentencia->execute($Email,$Password);
     }
     function getUser($Email){
