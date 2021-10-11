@@ -41,7 +41,7 @@ class Controller{
     }
     function addReseña(){
         $this->checkLoggedIn();
-        
+
     }
 
     function checkLoggedIn(){
@@ -49,6 +49,7 @@ class Controller{
 
         if(!isset($_SESSION["Email"])){
             header("Location: ".BASE_URL."login");
+            die();
         }
     }
 

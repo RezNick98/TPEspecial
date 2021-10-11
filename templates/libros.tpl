@@ -11,6 +11,12 @@
         <a class="btn btn-secondary mt-2 mb-2" href="generosLibros/{$book->Genero}">{$book->Genero}</a>
     {/foreach}
     </p>
+    <p> Login:
+      <a class="btn btn-secondary mt-2 mb-2" href="login">Login</a>
+      </p>
+       <p> Logout:
+      <a class="btn btn-secondary mt-2 mb-2" href="logout">Logout</a>
+      </p>
 </nav>
 
 <table  class="table table-dark table-hover">

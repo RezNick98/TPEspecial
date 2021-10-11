@@ -12,6 +12,10 @@ class loginView
         $this->smarty->assign('error',$error);
         $this->smarty->display('templates/login.tpl');
     }
+    function showRegister(){
+        $this->smarty->assign('titulo','register');
+        $this->smarty->display('templates/register.tpl');
+    }
     function showHome(){
         header("Location:".BASE_URL."home");
     }

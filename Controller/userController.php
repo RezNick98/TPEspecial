@@ -13,12 +13,26 @@ class userController
     function login(){
         $this->loginView->showLogin();
     }
+    function logout(){
+        session_start();
+        session_destroy();
+        $this->loginView->showLogin("Goodbye :)");
+    }
+    function register(){
+        if(!empty($_POST['Email'])  &&  !empty($_POST['Password'])){
+            $Email = $_POST['Email'];
+            $Password = $_POST['Password'];
+            $Encrypt_Password = password_hash($Password,PASSWORD_BCRYPT);
+            $user=$this->userModel->createUser($Email,$Encrypt_Password);
+
+        }
+    }
     function verifyLogin(){
         if(!empty($_POST['Email']) && !empty($_POST['Password'])){
             $Email=$_POST['Email'];
             $Password=$_POST['Password'];
             $user = $this->userModel->getUser($Email);
-            if($user && password_verify($Password,$user->Password)){
+            if($user &&  $Password==($user->Password)){
                 session_start();
                 $_SESSION["Email"]=$Email;
                 $this->loginView->showHome();

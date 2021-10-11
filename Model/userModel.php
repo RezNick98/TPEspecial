@@ -1,15 +1,20 @@
 <?php
 class userModel
 {
-    private $dbLogin;
+    private $dbUser;
     function __construct()
     {
-        $this->dbLogin=new PDO('mysql:host=localhost;'.'dbname=db_TPEspecial;charset=utf8', 'root', '');
+        $this->dbUser=new PDO('mysql:host=localhost;'.'dbname=db_TPEspecial;charset=utf8', 'root', '');
+    }
+    function createUser($Email, $Password){
+        $sentencia = $this->dbUser->prepare("INSERT INTO usuario('Email,Password) VALUES(?, ?)");
+        $sentencia->execute($Email,$Password);
     }
     function getUser($Email){
-        $sentencia= $this->dbLogin->prepare('SELECT  * FROM  usuario WHERE Email=?');
+        $sentencia= $this->dbUser->prepare("SELECT  * FROM  usuario WHERE  Email=?");
         $sentencia->execute([$Email]);
-        return $sentencia->fetch(PDO::FETCH_OBJ);
+        $user = $sentencia->fetch(PDO::FETCH_OBJ);
+        return $user;
     }
 
 }

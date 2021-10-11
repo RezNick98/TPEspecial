@@ -4,7 +4,7 @@ class autoresModel{
     private $dbAutores;
     function __construct()
     {
-        $this->dbAutores=new PDO('mysql:host=localhost;'.'dbname=db_TPespecial;charset=utf8', 'root', '');
+        $this->dbAutores=new PDO('mysql:host=localhost;'.'dbname=db_TPEspecial;charset=utf8', 'root', '');
     }
     function getAutors(){
         $query=$this->dbAutores->prepare("SELECT * FROM Autores");

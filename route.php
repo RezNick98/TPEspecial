@@ -9,7 +9,7 @@ if(!empty($_GET['action'])){
 }
 
 $Controller = new Controller();
-$userController=new userCOntroller();
+$userController=new userController();
 
 
 $params = explode('/',$action);
@@ -17,6 +17,12 @@ var_dump($params);
 switch ($params[0]) {
     case 'login':
         $userController->login();
+        break;
+    case 'logout':
+        $userController->logout();
+        break;
+    case 'register':
+        $userController->register();
         break;
     case 'verificar':
         $userController->verifyLogin();
