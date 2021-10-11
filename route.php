@@ -1,6 +1,6 @@
 <?php
 require_once 'Controller/Controller.php';
-require_once 'Controller/loginController.php';
+require_once 'Controller/userController.php';
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':'.$_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 if(!empty($_GET['action'])){
     $action = $_GET['action'];
@@ -9,12 +9,18 @@ if(!empty($_GET['action'])){
 }
 
 $Controller = new Controller();
-$loginController = new loginController();
+$userController=new userCOntroller();
 
 
 $params = explode('/',$action);
 var_dump($params);
 switch ($params[0]) {
+    case 'login':
+        $userController->login();
+        break;
+    case 'verificar':
+        $userController->verifyLogin();
+        break;
     case 'home':
         $Controller->showHome();
         break;
