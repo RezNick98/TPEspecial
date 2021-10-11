@@ -12,5 +12,6 @@
   <div class="col-auto">
     <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
   </div>
+  <p>Dont have an account yet, click <a href="register">here</a></p>
   <h4>{$error}</h4>
 </form>

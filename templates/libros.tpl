@@ -14,9 +14,12 @@
     <p> Login:
       <a class="btn btn-secondary mt-2 mb-2" href="login">Login</a>
       </p>
-       <p> Logout:
-      <a class="btn btn-secondary mt-2 mb-2" href="logout">Logout</a>
-      </p>
+    <p> Logout:
+        <a class="btn btn-secondary mt-2 mb-2" href="logout">Logout</a>
+    </p>
+    <p> Register:
+        <a class="btn btn-secondary mt-2 mb-2" href="register">Register</a>
+    </p>
 </nav>
 
 <table  class="table table-dark table-hover">
