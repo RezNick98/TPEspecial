@@ -19,6 +19,8 @@ class userController
             $Password=$_POST['Password'];
             $user = $this->userModel->getUser($Email);
             if($user && password_verify($Password,$user->Password)){
+                session_start();
+                $_SESSION["Email"]=$Email;
                 $this->loginView->showHome();
             }else{
                 $this->loginView->showLogin("Acceso denegado");

@@ -15,6 +15,7 @@ class Controller{
     }
 
     function showHome(){
+        $this->checkLoggedIn();
         $books = $this->modelLibros->getBooks();
         $autors = $this->modelAutores->getAutors();
         $this->view->showHome($books, $autors);
@@ -32,6 +33,14 @@ class Controller{
         $this->view->showBooksGenero($gen);
     }
     function addReseña(){
+    }
+
+    function checkLoggedIn(){
+        session_start();
+
+        if(!isset($_SESSION["Email"])){
+            header("Location: ".BASE_URL."login");
+        }
     }
 
 }
