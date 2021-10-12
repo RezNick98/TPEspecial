@@ -13,5 +13,6 @@
     <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
   </div>
   <p>Dont have an account yet, click <a href="register">here</a></p>
+  <p>visit the page as a guest click <a href="guest">here</a></p>
   <h4>{$error}</h4>
 </form>

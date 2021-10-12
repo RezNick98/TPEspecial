@@ -1,9 +1,9 @@
 <?php
 require_once './Model/librosModel.php';
 require_once './Model/autoresModel.php';
-require_once './View/homeView.php';
+require_once './View/guestView.php';
 
-class Controller{
+class guestController{
     private $modelLibros;
     private $modelAutores;
     private $view;
@@ -11,46 +11,28 @@ class Controller{
     {
         $this->modelLibros = new librosModel();
         $this->modelAutores = new autoresModel();
-        $this->view = new HomeView();
+        $this->view = new guestView();
     }
 
     function showHome(){
-        $this->checkLoggedIn();
-
         $books = $this->modelLibros->getBooks();
         $autors = $this->modelAutores->getAutors();
         $this->view->showHome($books, $autors);
     }
     function showBooksByAutor($Id_autor){
-        $this->checkLoggedIn();
 
         $itemsAutor=$this->modelAutores->getAutor($Id_autor);
-        $this->view->showBooksAutor($itemsAutor);
+        $this->guestView->showBooksAutor($itemsAutor);
     }
     function showBooksByTabla($id_libro){
-        $this->checkLoggedIn();
+
 
         $item = $this->modelLibros->getBook($id_libro);
-        $this->view->showBook($item);
+        $this->guestView->showBook($item);
     }
     function showBooksByGenero($genero){
-        $this->checkLoggedIn();
 
         $gen = $this->modelLibros->getLibrosGenero($genero);
-        $this->view->showBooksGenero($gen);
+        $this->guestView->showBooksGenero($gen);
     }
-    function addReseña(){
-        $this->checkLoggedIn();
-
-    }
-
-    function checkLoggedIn(){
-        session_start();
-
-        if(!isset($_SESSION["Email"])){
-            header("Location: ".BASE_URL."login");
-            die();
-        }
-    }
-
 }

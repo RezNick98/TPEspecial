@@ -1,6 +1,7 @@
 <?php
 require_once 'Controller/Controller.php';
 require_once 'Controller/userController.php';
+require_once 'Controller/guestController.php';
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':'.$_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 if(!empty($_GET['action'])){
     $action = $_GET['action'];
@@ -10,7 +11,7 @@ if(!empty($_GET['action'])){
 
 $Controller = new Controller();
 $userController=new userController();
-
+$guestController = new  guestController();
 
 $params = explode('/',$action);
 var_dump($params);
@@ -23,6 +24,18 @@ switch ($params[0]) {
         break;
     case 'register':
         $userController->register();
+        break;
+    case 'guest':
+        $guestController->showHome();
+        break;
+    case 'guestAutor':
+        $guestController->showBooksByAutor($params[1]);
+        break;
+    case 'guestGeneros':
+        $guestController->showBooksByGenero($params[1]);
+        break;
+    case 'guestDescripcion':
+        $guestController->showBooksByTabla($params[1]);
         break;
     case 'createAccount':
         $userController->createAccount();
