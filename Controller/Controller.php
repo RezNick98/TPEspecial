@@ -15,7 +15,6 @@ class Controller{
     }
 
     function showHome(){
-        $this->checkLoggedIn();
 
         $books = $this->modelLibros->getBooks();
         $autors = $this->modelAutores->getAutors();
@@ -28,13 +27,13 @@ class Controller{
         $this->view->showBooksAutor($itemsAutor);
     }
     function showBooksByTabla($id_libro){
-        $this->checkLoggedIn();
+      
 
         $item = $this->modelLibros->getBook($id_libro);
         $this->view->showBook($item);
     }
     function showBooksByGenero($genero){
-        $this->checkLoggedIn();
+
 
         $gen = $this->modelLibros->getLibrosGenero($genero);
         $this->view->showBooksGenero($gen);

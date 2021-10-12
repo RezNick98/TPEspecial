@@ -24,8 +24,8 @@ switch ($params[0]) {
     case 'register':
         $userController->register();
         break;
-    case 'createAcount':
-        $userController->createAcount();
+    case 'createAccount':
+        $userController->createAccount();
         break;
     case 'verificar':
         $userController->verifyLogin();

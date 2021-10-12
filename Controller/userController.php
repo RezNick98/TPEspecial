@@ -24,12 +24,10 @@ class userController
     function register(){
         $this->registerView->showRegister();
     }
-    function createAcount(){
+    function createAccount(){
         if(!empty($_POST['Email'])  &&  !empty($_POST['Password'])){
-            $Email = $_POST['Email'];
-            $Password = password_hash($_POST['Password'],PASSWORD_BCRYPT);
-            $user = $this->userModel->createUser($Email,$Password);
-
+           $this->userModel->createUser($_POST['Email'],$_POST['Password']);
+           $this->loginView->showLogin();
         }
     }
     function verifyLogin(){
@@ -37,7 +35,7 @@ class userController
             $Email=$_POST['Email'];
             $Password=$_POST['Password'];
             $user = $this->userModel->getUser($Email);
-            if($user && $Password==($user->Password)){
+            if($user && password_verify ($Password ,($user->Password ))){
                 session_start();
                 $_SESSION["Email"]=$Email;
                 $this->loginView->showHome();

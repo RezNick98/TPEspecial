@@ -1,5 +1,5 @@
 {include file="templates/header.tpl"}
-<form class="row g-3" method="POST" action="register">
+<form class="row g-3" method="POST" action="createAccount">
 <h2> register</h2>
   <div class="col-auto">
   <label for="Email" >Ingres su email</label>
