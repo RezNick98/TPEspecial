@@ -25,18 +25,6 @@ switch ($params[0]) {
     case 'register':
         $userController->register();
         break;
-    case 'guest':
-        $guestController->showHome();
-        break;
-    case 'guestAutor':
-        $guestController->showBooksByAutor($params[1]);
-        break;
-    case 'guestGeneros':
-        $guestController->showBooksByGenero($params[1]);
-        break;
-    case 'guestDescripcion':
-        $guestController->showBooksByTabla($params[1]);
-        break;
     case 'createAccount':
         $userController->createAccount();
         break;
@@ -58,7 +46,20 @@ switch ($params[0]) {
     case 'reseña':
         $Controller->addReseña();
         break;
+    case 'guest':
+        $guestController->showHome();
+        break;
+    case 'guestLibro':
+        $guestController->showBooksByAutor($params[1]);
+        break;
+    case 'guestGenres':
+        $guestController->showBooksByGenero($params[1]);
+        break;
+    case 'guestBook':
+        $guestController->showBooksByTabla($params[1]);
+        break;
     default:
         echo ('ERROR 404 not found');
         break;
 }
+                                

@@ -10,11 +10,12 @@ class guestController{
     function __construct()
     {
         $this->modelLibros = new librosModel();
-        $this->modelAutores = new autoresModel();
+        $this->modelAutores=new autoresModel();
         $this->view = new guestView();
     }
 
     function showHome(){
+
         $books = $this->modelLibros->getBooks();
         $autors = $this->modelAutores->getAutors();
         $this->view->showHome($books, $autors);
@@ -22,17 +23,15 @@ class guestController{
     function showBooksByAutor($Id_autor){
 
         $itemsAutor=$this->modelAutores->getAutor($Id_autor);
-        $this->guestView->showBooksAutor($itemsAutor);
+        $this->view->showBooksAutor($itemsAutor);
     }
     function showBooksByTabla($id_libro){
 
-
         $item = $this->modelLibros->getBook($id_libro);
-        $this->guestView->showBook($item);
+        $this->view->showBook($item);
     }
     function showBooksByGenero($genero){
-
         $gen = $this->modelLibros->getLibrosGenero($genero);
-        $this->guestView->showBooksGenero($gen);
+        $this->view->showBooksGenero($gen);
     }
-}
+ }

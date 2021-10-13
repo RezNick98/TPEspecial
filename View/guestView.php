@@ -15,22 +15,22 @@ class guestView{
     }
     function showBooks($books){
         $this->smarty->assign('books', $books);
-        $this->smarty->display('templates/libro.tpl');
+        $this->smarty->display('templates/guestBook.tpl');
     }
     function showAutors($autors){
         $this->smarty->assign('autors', $autors);
-        $this->smarty->display('templates/libros.tpl');
+        $this->smarty->display('templates/guest.tpl');
     }
     function showBooksAutor($items){
         $this->smarty->assign('items',$items);
-        $this->smarty->display('templates/autorAndBooks.tpl');
+        $this->smarty->display('templates/guestAutorBooks.tpl');
     }
     function showBook($item){
         $this->smarty->assign('item',$item);
-        $this->smarty->display('templates/libro.tpl');
+        $this->smarty->display('templates/guestBook.tpl');
     }
     function showBooksGenero($genero){
         $this->smarty->assign('genero', $genero);
-        $this->smarty->display('templates/genero.tpl');
+        $this->smarty->display('templates/guestGenres.tpl');
     }
 }
