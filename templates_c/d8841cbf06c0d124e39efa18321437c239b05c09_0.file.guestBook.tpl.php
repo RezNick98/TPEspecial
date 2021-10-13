@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-13 17:51:45
+/* Smarty version 3.1.39, created on 2021-10-13 17:55:41
   from 'C:\xampp\htdocs\TPEspecial\templates\guestBook.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_6167009100b358_75514454',
+  'unifunc' => 'content_6167017d5fdfc0_76834978',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd8841cbf06c0d124e39efa18321437c239b05c09' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEspecial\\templates\\guestBook.tpl',
-      1 => 1634140289,
+      1 => 1634140534,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_6167009100b358_75514454 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6167017d5fdfc0_76834978 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -40,7 +40,7 @@ $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cach
 </p>
     </div>
 
-    <a href='home' class="btn btn-primary mt-5"> Volver al home </a>
+    <a href='guest' class="btn btn-primary mt-5"> Volver al home </a>
 
 </div>
 

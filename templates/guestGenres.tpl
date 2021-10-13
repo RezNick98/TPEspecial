@@ -17,6 +17,6 @@
         {/foreach}
 </table>
 
-<a href='home' class="btn btn-primary mt-5"> Volver al home </a>
+<a href='guest' class="btn btn-primary mt-5"> Volver al home </a>
 
 {include file="footer.tpl"}

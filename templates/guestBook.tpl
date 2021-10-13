@@ -11,7 +11,7 @@
         <p>{$item->Descripcion}</p>
     </div>
 
-    <a href='home' class="btn btn-primary mt-5"> Volver al home </a>
+    <a href='guest' class="btn btn-primary mt-5"> Volver al home </a>
 
 </div>
 
