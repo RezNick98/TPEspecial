@@ -8,6 +8,9 @@ class homeView{
         $this->smarty = new Smarty();
     }
 
+    function showHomeLocation(){
+        header("Location: ".BASE_URL."home");
+    }
     function showHome($books, $autors){
         $this->smarty->assign('books', $books);
         $this->smarty->assign('autors', $autors);

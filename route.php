@@ -46,6 +46,8 @@ switch ($params[0]) {
     case 'reseña':
         $Controller->addReseña();
         break;
+    case 'agregarLibro':
+        $Controller->agregarLibro();
     case 'guest':
         $guestController->showHome();
         break;

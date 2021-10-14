@@ -25,5 +25,9 @@ class librosModel
         $gen = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $gen;
     }
+    function createBook($titulo, $genero, $descripcion, $id_autor){
+        $sentencia = $this->dbLibros->prepare("INSERT INTO Libros(titulo, genero, descripcion, fk_Id_autor) VALUES(?, ?, ?, ?)");
+        $sentencia->execute(array($titulo, $genero, $descripcion, $id_autor));
+    }
     
 }

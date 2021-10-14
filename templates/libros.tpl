@@ -39,9 +39,9 @@
 </table>
 
 <form action="agregarLibro" method="POST">
-         <label>TItulo</label><input type="text" name="Titulo">
-        <label>Genero:</label> <input type="text" name="Titulo">
-        <label>Descripcion</label> <textarea name="texto"cols="30" rows="1"></textarea>
+         <label>TItulo: </label><input type="text" name="titulo">
+        <label>Genero: </label> <input type="text" name="genero">
+        <label>Descripcion: </label> <textarea name="texto"cols="30" rows="1"></textarea>
     <select name="select">
         {foreach from=$autors item=$autor}    
             <option value="{$autor->Id_autor}">{$autor->Nombre} {$autor->Apellido}</option>

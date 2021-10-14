@@ -43,6 +43,12 @@ class Controller{
         $this->checkLoggedIn();
 
     }
+    function agregarLibro(){
+        $this->checkLoggedIn();
+
+        $this->modelLibros->createBook($_POST['titulo'], $_POST['genero'], $_POST['texto'], $_POST['select']);
+        $this->view->showHomeLocation();
+    }
 
     function checkLoggedIn(){
         session_start();
