@@ -43,9 +43,6 @@ switch ($params[0]) {
     case 'generosLibros':
         $Controller->showBooksByGenero($params[1]);
         break;
-    case 'reseña':
-        $Controller->addReseña();
-        break;
     case 'agregarLibro':
         $Controller->agregarLibro();
         break;
