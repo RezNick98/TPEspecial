@@ -17,9 +17,10 @@ class Controller{
     function showHome(){
         $this->checkLoggedIn();
 
+        $genero = $this->modelLibros->getGenProm();
         $books = $this->modelLibros->getBooks();
         $autors = $this->modelAutores->getAutors();
-        $this->view->showHome($books, $autors);
+        $this->view->showHome($books, $autors, $genero);
     }
     function showBooksByAutor($Id_autor){
         $this->checkLoggedIn();

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-10 18:47:17
+/* Smarty version 3.1.39, created on 2021-10-14 21:44:52
   from 'C:\xampp\htdocs\Tpe 2\TPEspecial\templates\genero.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61631915a7c1d2_65981048',
+  'unifunc' => 'content_616888b4e9b1a2_79833476',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'eb7b93d73673c4d6dba2c927f9848bd6a04a9bbb' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Tpe 2\\TPEspecial\\templates\\genero.tpl',
-      1 => 1633884435,
+      1 => 1634240686,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_61631915a7c1d2_65981048 (Smarty_Internal_Template $_smarty_tpl) {
+function content_616888b4e9b1a2_79833476 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\Tpe2\\TPEspecial\\libs\\smarty-3.1.39\\libs\\plugins\\modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -33,6 +33,7 @@ $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cach
             <th>Genero</th>
             <th>Descripcion</th>
             <th><hr></th>
+            <th>Eliminar</th>
         </tr>
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['genero']->value, 'gen');
@@ -49,6 +50,8 @@ $_smarty_tpl->tpl_vars['gen']->do_else = false;
 </td>
             <td> <a class="btn btn-warning" href="viewDescripcion/<?php echo $_smarty_tpl->tpl_vars['gen']->value->id_libros;?>
 ">Leer mas...</a> </td>
+            <td> <a class="btn btn-danger" href="deleteBook/<?php echo $_smarty_tpl->tpl_vars['gen']->value->id_libros;?>
+">Eliminar</a> </td>
         </tr>
         <?php
 }
