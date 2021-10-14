@@ -7,8 +7,8 @@
     {/foreach}
     </p>
     <p>Generos: 
-    {foreach from=$books item=$book}
-        <a class="btn btn-secondary mt-2 mb-2" href="generosLibros/{$book->Genero}">{$book->Genero}</a>
+    {foreach from=$genero item=$g}
+        <a class="btn btn-secondary mt-2 mb-2" href="generosLibros/{$g->Genero}">{$g->Genero}</a>
     {/foreach}
     </p>
     <p> Login:

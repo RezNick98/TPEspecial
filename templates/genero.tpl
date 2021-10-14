@@ -6,6 +6,7 @@
             <th>Genero</th>
             <th>Descripcion</th>
             <th><hr></th>
+            <th>Eliminar</th>
         </tr>
         {foreach from=$genero item=$gen}
         <tr>
@@ -13,6 +14,7 @@
             <td>{$gen->Genero}</td>
             <td>{$gen->Descripcion|lower|truncate:20}</td>
             <td> <a class="btn btn-warning" href="viewDescripcion/{$gen->id_libros}">Leer mas...</a> </td>
+            <td> <a class="btn btn-danger" href="deleteBook/{$gen->id_libros}">Eliminar</a> </td>
         </tr>
         {/foreach}
 </table>

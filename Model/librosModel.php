@@ -19,6 +19,12 @@ class librosModel
         $book = $sentencia->fetch(PDO::FETCH_OBJ);
         return $book;
     }
+    function getGenProm(){
+        $sentencia = $this->dbLibros->prepare("SELECT Genero, COUNT(*) AS total FROM Libros GROUP BY genero");
+        $sentencia->execute();
+        $genero = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $genero;
+    }
     function getLibrosGenero($genero){
         $sentencia = $this->dbLibros->prepare("SELECT * from Libros WHERE Genero = '$genero'");
         $sentencia->execute();

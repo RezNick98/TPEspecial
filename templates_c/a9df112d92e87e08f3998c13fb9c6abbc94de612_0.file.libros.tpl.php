@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-14 21:06:56
+/* Smarty version 3.1.39, created on 2021-10-14 21:41:51
   from 'C:\xampp\htdocs\Tpe 2\TPEspecial\templates\libros.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61687fd0779544_90445013',
+  'unifunc' => 'content_616887ff5a9438_92362205',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a9df112d92e87e08f3998c13fb9c6abbc94de612' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Tpe 2\\TPEspecial\\templates\\libros.tpl',
-      1 => 1634238416,
+      1 => 1634240509,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_61687fd0779544_90445013 (Smarty_Internal_Template $_smarty_tpl) {
+function content_616887ff5a9438_92362205 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\Tpe2\\TPEspecial\\libs\\smarty-3.1.39\\libs\\plugins\\modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -45,13 +45,13 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </p>
     <p>Generos: 
     <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['books']->value, 'book');
-$_smarty_tpl->tpl_vars['book']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['book']->value) {
-$_smarty_tpl->tpl_vars['book']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['genero']->value, 'g');
+$_smarty_tpl->tpl_vars['g']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['g']->value) {
+$_smarty_tpl->tpl_vars['g']->do_else = false;
 ?>
-        <a class="btn btn-secondary mt-2 mb-2" href="generosLibros/<?php echo $_smarty_tpl->tpl_vars['book']->value->Genero;?>
-"><?php echo $_smarty_tpl->tpl_vars['book']->value->Genero;?>
+        <a class="btn btn-secondary mt-2 mb-2" href="generosLibros/<?php echo $_smarty_tpl->tpl_vars['g']->value->Genero;?>
+"><?php echo $_smarty_tpl->tpl_vars['g']->value->Genero;?>
 </a>
     <?php
 }
