@@ -29,5 +29,13 @@ class librosModel
         $sentencia = $this->dbLibros->prepare("INSERT INTO Libros(titulo, genero, descripcion, fk_Id_autor) VALUES(?, ?, ?, ?)");
         $sentencia->execute(array($titulo, $genero, $descripcion, $id_autor));
     }
+    function deleteBook($id){
+        $sentencia = $this->dbLibros->prepare("DELETE FROM Libros WHERE id_libros=?");
+        $sentencia->execute(array($id));
+    }
+    function updateBook($titulo, $genero, $descripcion, $id_libro){
+        $sentencia = $this->dbLibros->prepare("UPDATE Libros SET Titulo = '$titulo', Genero = '$genero', Descripcion = '$descripcion' WHERE id_libros = $id_libro");
+        $sentencia->execute();
+    }
     
 }

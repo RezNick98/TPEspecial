@@ -24,7 +24,8 @@
             <th>Titulo</th>
             <th>Genero</th>
             <th>Descripcion</th>
-            <th></th>
+            <th><hr/></th>
+            <th>Eliminar</th>
         </thead>
         <tbody>
         {foreach from=$books item=$book}       
@@ -32,7 +33,8 @@
                 <td>{$book->Titulo|upper}</td>
                 <td>{$book->Genero}</td>
                 <td>{$book->Descripcion|truncate:10}</td>
-                <td> <a class="btn btn-warning" href="viewDescripcion/{$book->id_libros}">Leer mas...</a> </td>
+                <td> <a class="btn btn-info" href="viewDescripcion/{$book->id_libros}">Leer mas...</a> </td>
+                <td> <a class="btn btn-danger" href="deleteBook/{$book->id_libros}">Eliminar</a> </td>
             </tr>
         {/foreach}
     </tbody>
@@ -47,7 +49,19 @@
             <option value="{$autor->Id_autor}">{$autor->Nombre} {$autor->Apellido}</option>
         {/foreach}
     </select>
-        <input type="submit" value="Enviar">
+        <input class="btn btn-success" type="submit" value="Enviar">
+</form>
+
+<form action="updateBook" method="POST">
+         <label>TItulo: </label><input type="text" name="titulo">
+        <label>Genero: </label> <input type="text" name="genero">
+        <label>Descripcion: </label> <textarea name="texto"cols="30" rows="1"></textarea>
+    <select name="select">
+        {foreach from=$books item=$book}    
+            <option value="{$book->id_libros}">{$book->Titulo}</option>
+        {/foreach}
+    </select>
+        <input class="btn btn-success" type="submit" value="Modificar">
 </form>
 
 {include file="templates/footer.tpl"}
