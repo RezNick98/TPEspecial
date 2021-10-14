@@ -5,11 +5,13 @@
     {foreach from=$autors item=$autor}    
         <a class="btn btn-secondary mt-2 mb-2" href="autorLibros/{$autor->Id_autor}">{$autor->Nombre} {$autor->Apellido}</a>
     {/foreach}
+    
     </p>
-    <p>Generos: 
+    <p>Generos:
     {foreach from=$books item=$book}
         <a class="btn btn-secondary mt-2 mb-2" href="generosLibros/{$book->Genero}">{$book->Genero}</a>
     {/foreach}
+   
     </p>
     <p> Login:
       <a class="btn btn-secondary mt-2 mb-2" href="login">Login</a>

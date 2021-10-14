@@ -36,4 +36,5 @@ class homeView{
         $this->smarty->assign('genero', $genero);
         $this->smarty->display('templates/genero.tpl');
     }
+
 }
