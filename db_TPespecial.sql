@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Oct 04, 2021 at 10:47 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.23
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 15-10-2021 a las 00:33:04
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 7.3.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,36 +18,36 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `db_TPespecial`
+-- Base de datos: `db_tpespecial`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Autores`
+-- Estructura de tabla para la tabla `autores`
 --
 
-CREATE TABLE `Autores` (
+CREATE TABLE `autores` (
   `Id_autor` int(11) NOT NULL,
   `Nombre` varchar(45) NOT NULL,
   `Apellido` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `Autores`
+-- Volcado de datos para la tabla `autores`
 --
 
-INSERT INTO `Autores` (`Id_autor`, `Nombre`, `Apellido`) VALUES
+INSERT INTO `autores` (`Id_autor`, `Nombre`, `Apellido`) VALUES
 (1, 'Stephen', 'King'),
 (2, 'Julio', 'Verne');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Libros`
+-- Estructura de tabla para la tabla `libros`
 --
 
-CREATE TABLE `Libros` (
+CREATE TABLE `libros` (
   `id_libros` int(11) NOT NULL,
   `Titulo` varchar(45) NOT NULL,
   `Genero` varchar(45) NOT NULL,
@@ -56,67 +56,76 @@ CREATE TABLE `Libros` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `Libros`
+-- Volcado de datos para la tabla `libros`
 --
 
-INSERT INTO `Libros` (`id_libros`, `Titulo`, `Genero`, `Descripcion`, `fk_Id_autor`) VALUES
+INSERT INTO `libros` (`id_libros`, `Titulo`, `Genero`, `Descripcion`, `fk_Id_autor`) VALUES
+(0, 'Carrie', 'Terror', 'lpololasd', 1),
 (1, 'IT', 'Terror', 'LALALA', 1),
-(2, '10.000 leguas de viajes submarinas', 'Fantasia', 'LELELE', 2),
-(3, 'The shining', 'Terror', 'LILILILI', 1);
+(2, 'The shining', 'Terror', 'LILILILI', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `Usuario`
+-- Estructura de tabla para la tabla `usuario`
 --
 
-CREATE TABLE `Usuario` (
+CREATE TABLE `usuario` (
   `Id_usuario` int(11) NOT NULL,
   `Email` varchar(200) NOT NULL,
   `Password` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Indexes for dumped tables
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`Id_usuario`, `Email`, `Password`) VALUES
+(1, 'administrador@root.com', '$2y$10$BRGnRGMpsDTk3zSlLFwfQutWq7hh3rJKCxIgH7WYHQ42VQmX15eia'),
+(2, 'administrador@root.com', '$2y$10$Gn3OiR4B1//sHHY7yoPcN.lxArgWnuXa3BaqrfOc5/jSYUHf.GpXS');
+
+--
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `Autores`
+-- Indices de la tabla `autores`
 --
-ALTER TABLE `Autores`
+ALTER TABLE `autores`
   ADD PRIMARY KEY (`Id_autor`);
 
 --
--- Indexes for table `Libros`
+-- Indices de la tabla `libros`
 --
-ALTER TABLE `Libros`
-  ADD PRIMARY KEY (`id_libros`);
+ALTER TABLE `libros`
+  ADD PRIMARY KEY (`id_libros`),
+  ADD KEY `fk_Autores_Libros` (`fk_Id_autor`);
 
 --
--- Indexes for table `Usuario`
+-- Indices de la tabla `usuario`
 --
-ALTER TABLE `Usuario`
+ALTER TABLE `usuario`
   ADD PRIMARY KEY (`Id_usuario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `Usuario`
+-- AUTO_INCREMENT de la tabla `usuario`
 --
-ALTER TABLE `Usuario`
-  MODIFY `Id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `usuario`
+  MODIFY `Id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `Libros`
+-- Filtros para la tabla `libros`
 --
-ALTER TABLE `Libros`
-  ADD CONSTRAINT `fk_Autores_Libros` FOREIGN KEY (`fk_Id_autor`) REFERENCES `Autores` (`Id_autor`);
+ALTER TABLE `libros`
+  ADD CONSTRAINT `fk_Autores_Libros` FOREIGN KEY (`fk_Id_autor`) REFERENCES `autores` (`Id_autor`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
