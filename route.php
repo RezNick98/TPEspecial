@@ -48,6 +48,13 @@ switch ($params[0]) {
         break;
     case 'agregarLibro':
         $Controller->agregarLibro();
+        break;
+    case 'deleteBook':
+        $Controller->deleteBook($params[1]);
+        break;
+    case 'updateBook':
+        $Controller->updateBook();
+        break;
     case 'guest':
         $guestController->showHome();
         break;

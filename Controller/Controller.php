@@ -49,6 +49,18 @@ class Controller{
         $this->modelLibros->createBook($_POST['titulo'], $_POST['genero'], $_POST['texto'], $_POST['select']);
         $this->view->showHomeLocation();
     }
+    function deleteBook($id){
+        $this->checkLoggedIn();
+
+        $this->modelLibros->deleteBook($id);
+        $this->view->showHomeLocation();
+    }
+    function updateBook(){
+        $this->checkLoggedIn();
+
+        $this->modelLibros->updateBook($_POST['titulo'], $_POST['genero'], $_POST['texto'], $_POST['select']);
+        $this->view->showHomeLocation();
+    }
 
     function checkLoggedIn(){
         session_start();
