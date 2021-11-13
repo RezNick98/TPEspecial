@@ -2,7 +2,11 @@
 <form class="row g-3" method="POST" action="createAccount">
 <h2> register</h2>
   <div class="col-auto">
-  <label for="Email" >Ingres su email</label>
+  <label for="Email" >Ingrese su usuario</label>
+    <input type="text"  name="Nombreusuario" id="Nombreusuario"; required>
+  </div>
+  <div class="col-auto">
+  <label for="Email" >Ingrese su email</label>
     <input type="text"  name="Email" id="Email"; required>
   </div>
   <div class="col-auto">

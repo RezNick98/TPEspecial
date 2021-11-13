@@ -25,19 +25,22 @@ class userController
         $this->registerView->showRegister();
     }
     function createAccount(){
-        if(!empty($_POST['Email'])  &&  !empty($_POST['Password'])){
-           $this->userModel->createUser($_POST['Email'],$_POST['Password']);
-           $this->loginView->showLogin();
+        if(!empty($_POST['Email'])  &&  !empty($_POST['Password']) && !empty($_POST['Nombreusuario'])){
+           $this->userModel->createUser($_POST['Email'],$_POST['Password'],$_POST['Nombreusuario']);
+           $this->loginView->showHome();
         }
     }
     function verifyLogin(){
-        if(!empty($_POST['Email']) && !empty($_POST['Password'])){
+        if(!empty($_POST['Email']) && !empty($_POST['Password']) && !empty($_POST['Nombreusuario'])){
             $Email=$_POST['Email'];
             $Password=$_POST['Password'];
-            $user = $this->userModel->getUser($Email);
-            if($user && password_verify ($Password ,($user->Password ))){
+            $usuario = $_POST['Nombreusuario'];
+            $userMail = $this->userModel->getUserMail($Email);
+            $user = $this->userModel->getUser($usuario);
+            if($user && $userMail && password_verify ($Password ,($user->Password ))){
                 session_start();
                 $_SESSION["Email"]=$Email;
+                $_SESSION["Nombreusuario"]=$user;
                 $this->loginView->showHome();
             }else{
                 $this->loginView->showLogin("Acceso denegado");

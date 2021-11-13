@@ -1,6 +1,10 @@
 {include file="templates/header.tpl"}
 <form class="row g-3" method="POST" action="verificar">
 <h2>Log in</h2>
+ <div class="col-auto">
+  <label for="User" >User</label>
+    <input type="text"  name="Nombreusuario" id="Nombreusuario"; required>
+  </div>
   <div class="col-auto">
   <label for="Email" >Email</label>
     <input type="text"  name="Email" id="Email"; required>
