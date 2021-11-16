@@ -7,6 +7,10 @@ class guestView{
     {
         $this->smarty = new Smarty();
     }
+    function newUsers(){
+        header("Location:".BASE_URL."newRegister");
+
+    }
 
     function showHome($books, $autors){
         $this->smarty->assign('books', $books);

@@ -21,15 +21,6 @@ class userController
         session_destroy();
         $this->loginView->showLogin("Goodbye :)");
     }
-    function register(){
-        $this->registerView->showRegister();
-    }
-    function createAccount(){
-        if(!empty($_POST['Email'])  &&  !empty($_POST['Password']) && !empty($_POST['Nombreusuario'])){
-           $this->userModel->createUser($_POST['Email'],$_POST['Password'],$_POST['Nombreusuario']);
-           $this->loginView->showHome();
-        }
-    }
     function verifyLogin(){
         if(!empty($_POST['Email']) && !empty($_POST['Password']) && !empty($_POST['Nombreusuario'])){
             $Email=$_POST['Email'];
