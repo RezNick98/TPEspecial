@@ -32,7 +32,7 @@ class userController
                 session_start();
                 $_SESSION["Email"]=$Email;
                 $_SESSION["Nombreusuario"]=$user;
-                $this->loginView->showHome();
+                header("Location:".BASE_URL."newRegister");
             }else{
                 $this->loginView->showLogin("Acceso denegado");
             }

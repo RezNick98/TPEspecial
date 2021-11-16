@@ -15,7 +15,6 @@ class Controller{
     }
 
     function showHome(){
-        $this->checkLoggedIn();
 
         $genero = $this->modelLibros->getGenProm();
         $books = $this->modelLibros->getBooks();
