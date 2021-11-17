@@ -24,7 +24,24 @@ class userModel
         return $user;
 
     }
-
+    function getAdmin(){
+        $query = $this->dbUser->prepare("SELECT email FROM usuairo WHERE admin=1");
+        $query->execute();
+        $admin = $query->fetchAll(PDO::FETCH_OBJ);
+        return $admin;
+    }
+    function deleteUser($Id_usuario){
+        $query = $this->dbUser->prepare("DELETE FROM usuario WHERE Id_usuario=?");
+        $query->execute(array($Id_usuario));
+    }
+    function fromAdminToUSer($Id_usuario){
+        $query = $this->dbUser->prepare("UPDATE usuario SET admin=0 WHERE Id_usuario=?");
+        $query->execute(array($Id_usuario));
+    }
+    function fromUserToAdmin($Id_usuario){
+        $query = $this->dbUser->prepare("UPDATE usuario SET admin=1 Id_usuario=?");
+        $query->execute(array($Id_usuario));
+    }
 }
 
 

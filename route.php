@@ -2,7 +2,6 @@
 require_once 'Controller/Controller.php';
 require_once 'Controller/userController.php';
 require_once 'Controller/guestController.php';
-require_once 'Controller/registerController.php';
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':'.$_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 if(!empty($_GET['action'])){
     $action = $_GET['action'];
@@ -13,7 +12,6 @@ if(!empty($_GET['action'])){
 $Controller = new Controller();
 $userController=new userController();
 $guestController = new  guestController();
-$registerController = new registerController();
 
 $params = explode('/',$action);
 var_dump($params);
@@ -25,10 +23,10 @@ switch ($params[0]) {
         $userController->logout();
         break;
     case 'register':
-        $registerController->register();
+        $userController->register();
         break;
     case 'createAccount':
-        $registerController->createAccount();
+        $userController->createAccount();
         break;
     case 'verificar':
         $userController->verifyLogin();
@@ -65,9 +63,6 @@ switch ($params[0]) {
         break;
     case 'guestBook':
         $guestController->showBooksByTabla($params[1]);
-        break;
-        case "newRegister":
-            $guestController->showHome();
         break;
     default:
         echo ('ERROR 404 not found');

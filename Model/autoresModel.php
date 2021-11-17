@@ -18,4 +18,7 @@ class autoresModel{
         $items=$query->fetchAll((PDO::FETCH_OBJ));
         return $items;
     }
+    function deleteAutor(){
+        
+    }
 }

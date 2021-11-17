@@ -4,5 +4,5 @@ require_once './libs/Router.php';
 require_once './Controller/Controller.php';
 $router =new Router();
 
-$router->addRoute('home','GET','Controller','showHome');
+$router->addRoute('home','GET','Controller','showHome');    
 $router->route($_GET["resource"],$_SERVER['REQUEST_METHOD']);

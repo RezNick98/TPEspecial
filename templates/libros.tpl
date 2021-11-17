@@ -11,13 +11,15 @@
     {foreach from=$books item=$book}
         <a class="btn btn-secondary mt-2 mb-2" href="generosLibros/{$book->Genero}">{$book->Genero}</a>
     {/foreach}
-   
     </p>
     <p> Login:
       <a class="btn btn-secondary mt-2 mb-2" href="login">Login</a>
       </p>
     <p> Logout:
         <a class="btn btn-secondary mt-2 mb-2" href="logout">Logout</a>
+    </p>
+        <p> admin:
+        <a class="btn btn-secondary mt-2 mb-2" href="logout">Admin</a>
     </p>
 </nav>
 

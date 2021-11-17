@@ -21,6 +21,15 @@ class userController
         session_destroy();
         $this->loginView->showLogin("Goodbye :)");
     }
+    function createAccount(){
+        if(!empty($_POST['Email'])  &&  !empty($_POST['Password']) && !empty($_POST['Nombreusuario'])){
+           $this->userModel->createUser($_POST['Email'],$_POST['Password'],$_POST['Nombreusuario']);
+           header("Location: ".BASE_URL."home");
+        }
+    }
+    function register(){
+        $this->registerView->showRegister();
+    }
     function verifyLogin(){
         if(!empty($_POST['Email']) && !empty($_POST['Password']) && !empty($_POST['Nombreusuario'])){
             $Email=$_POST['Email'];
@@ -32,7 +41,8 @@ class userController
                 session_start();
                 $_SESSION["Email"]=$Email;
                 $_SESSION["Nombreusuario"]=$user;
-                header("Location:".BASE_URL."newRegister");
+                $_SESSION['admin'] = $user->admin;
+                header("Location:".BASE_URL."home");
             }else{
                 $this->loginView->showLogin("Acceso denegado");
             }
