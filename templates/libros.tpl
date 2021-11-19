@@ -19,7 +19,7 @@
         <a class="btn btn-secondary mt-2 mb-2" href="logout">Logout</a>
     </p>
         <p> admin:
-        <a class="btn btn-secondary mt-2 mb-2" href="logout">Admin</a>
+        <a class="btn btn-secondary mt-2 mb-2" href="adminView">Admin</a>
     </p>
 </nav>
 

@@ -11,6 +11,11 @@ class userModel
         $sentencia = $this->dbUser->prepare("INSERT INTO usuario(Email,Password,Nombreusuario) VALUES(?, ?, ?)");
         $sentencia->execute([$Email,$Password,$Nombreusuario]);
     }
+    function getAllUsers(){
+        $query = $this->dbUser->prepare("SELECT * FROM usuario");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
     function getUserMail($Email){
         $sentencia= $this->dbUser->prepare("SELECT  * FROM  usuario WHERE  Email=?");
         $sentencia->execute([$Email]);
@@ -25,7 +30,7 @@ class userModel
 
     }
     function getAdmin(){
-        $query = $this->dbUser->prepare("SELECT email FROM usuairo WHERE admin=1");
+        $query = $this->dbUser->prepare("SELECT Email FROM usuario WHERE rol=1");
         $query->execute();
         $admin = $query->fetchAll(PDO::FETCH_OBJ);
         return $admin;

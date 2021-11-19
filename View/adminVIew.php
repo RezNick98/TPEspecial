@@ -7,13 +7,15 @@ class adminView{
     {
      $this->smarty = new Smarty();   
     }
-    function showAdminView($usuario,$admin){
-        $this->smarty->assign('usuario',$usuario);
-        $this->smarty->assign('admin',$admin);
-        $this->smarty->display("templates/admin.tpl");
+    
+    public function showUsuarios($usuarios,$rol){
+        $this->smarty->assign('usuarios',$usuarios);
+        $this->smarty->assign('rol',$rol);
+        $this->smarty->display('templates/admin.tpl');
+
+
     }
     function showAdminViewLocation(){
-        header("Location:".BASE_URL."admin");
+        header("Location:".BASE_URL."adminView");
     }
-
 }

@@ -12,6 +12,7 @@ class userController
         $this->userModel = new userModel();
         $this->loginView = new loginView();
         $this->registerView = new registerView();
+
     } 
     function login(){
         $this->loginView->showLogin();
@@ -22,9 +23,19 @@ class userController
         $this->loginView->showLogin("Goodbye :)");
     }
     function createAccount(){
-        if(!empty($_POST['Email'])  &&  !empty($_POST['Password']) && !empty($_POST['Nombreusuario'])){
-           $this->userModel->createUser($_POST['Email'],$_POST['Password'],$_POST['Nombreusuario']);
-           header("Location: ".BASE_URL."home");
+        if(!empty($_POST['Email']) && !empty($_POST['Password']) && !empty($_POST['Nombreusuario'])){
+            $userEmail = $_POST['Email'];
+            $Password = password_hash($_POST['Password'], PASSWORD_BCRYPT);
+            $username = $_POST['Nombreusuario'];
+            
+            $this->userModel->createUser($userEmail, $Password,$username);
+            $user = $this->userModel->getUser($userEmail);
+            
+            session_start();
+            $_SESSION['email'] = $userEmail;
+            $_SESSION['admin'] = $user->admin;
+            $this->loginView->showHome();
+            
         }
     }
     function register(){
@@ -41,8 +52,8 @@ class userController
                 session_start();
                 $_SESSION["Email"]=$Email;
                 $_SESSION["Nombreusuario"]=$user;
-                $_SESSION['admin'] = $user->admin;
-                header("Location:".BASE_URL."home");
+                $_SESSION['admin'] = $user->rol;
+                $this->loginView->showHome();
             }else{
                 $this->loginView->showLogin("Acceso denegado");
             }

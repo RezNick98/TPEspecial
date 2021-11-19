@@ -2,7 +2,7 @@
 class authHelper{
     function checkAdminLoggedIn(){
         session_start();
-        if($_SESSION['admin']!=1){
+        if($_SESSION['admin']==1){
             header("Location:".BASE_URL."login");
             die();
         }
@@ -21,14 +21,14 @@ class authHelper{
     }
     function adminView(){
         session_start();
-        if($_SESSION["admin"]!=1){
+        if($_SESSION["admin"]==1){
             header("Location:".BASE_URL."login");
             die();
         }else{
-            if(isset($_SESSION['email']) && $_SESSION['admin'] == 1){
+            if(isset($_SESSION['Email']) && $_SESSION['admin'] == 1){
                 $rol = "admin";
             }
-            elseif (isset($_SESSION['email']) && ($_SESSION['admin'] != 1)){
+            elseif (isset($_SESSION['Email']) && ($_SESSION['admin'] != 1)){
                 $rol = "usuario";
             }
             else{

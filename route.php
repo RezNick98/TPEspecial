@@ -2,6 +2,7 @@
 require_once 'Controller/Controller.php';
 require_once 'Controller/userController.php';
 require_once 'Controller/guestController.php';
+require_once 'Controller/adminController.php';
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':'.$_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 if(!empty($_GET['action'])){
     $action = $_GET['action'];
@@ -12,7 +13,7 @@ if(!empty($_GET['action'])){
 $Controller = new Controller();
 $userController=new userController();
 $guestController = new  guestController();
-
+$adminController = new adminController();
 $params = explode('/',$action);
 var_dump($params);
 switch ($params[0]) {
@@ -64,6 +65,19 @@ switch ($params[0]) {
     case 'guestBook':
         $guestController->showBooksByTabla($params[1]);
         break;
+    case 'adminView':
+        $adminController->showAdmin();
+        break;
+    case 'deleteUser':
+        $adminController->deleteUsuario($params[1]);
+        break;
+    case 'giveAdmin':
+        $adminController->addAdmin($params[1]);
+        break;
+    case 'removeAdmin':
+        $adminController->removeAdmin($params[1]);
+        break;
+    
     default:
         echo ('ERROR 404 not found');
         break;

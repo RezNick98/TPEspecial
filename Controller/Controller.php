@@ -30,12 +30,10 @@ class Controller{
         $this->view->showBook($item);
     }
     function showBooksByAutor($Id_autor){
-        $this->authHelper->checkAdminLoggedIn();
         $itemsAutor=$this->modelAutores->getAutor($Id_autor);
         $this->view->showBooksAutor($itemsAutor);
     }
     function showBooksByGenero($genero){
-        $this->authHelper->checkAdminLoggedIn();
         $gen = $this->modelLibros->getLibrosGenero($genero);
         $this->view->showBooksGenero($gen);
     }
