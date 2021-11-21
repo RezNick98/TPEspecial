@@ -1,5 +1,5 @@
 <?php
-require_once "libs/smarty-3.1.39/libs/Smarty.class.php";
+require_once './libs/smarty-3.1.39/libs/Smarty.class.php';
 
 class adminView{
     private $smarty;
@@ -10,7 +10,7 @@ class adminView{
     
     public function showUsuarios($usuarios,$admin){
         $this->smarty->assign('usuarios',$usuarios);
-        $this->smarty->assign('rol',$admin);
+        $this->smarty->assign('admin',$admin);
         $this->smarty->display('templates/admin.tpl');
 
 

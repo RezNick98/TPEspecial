@@ -44,7 +44,7 @@ class userModel
         $query->execute(array($Id_usuario));
     }
     function fromUserToAdmin($Id_usuario){
-        $query = $this->dbUser->prepare("UPDATE usuario SET admin=1 Id_usuario=?");
+        $query = $this->dbUser->prepare("UPDATE usuario SET admin=1 WHERE Id_usuario=?");
         $query->execute(array($Id_usuario));
     }
 }
