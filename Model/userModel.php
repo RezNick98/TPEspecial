@@ -30,7 +30,7 @@ class userModel
 
     }
     function getAdmin(){
-        $query = $this->dbUser->prepare("SELECT Email FROM usuario WHERE rol=1");
+        $query = $this->dbUser->prepare("SELECT Email FROM usuario WHERE admin=1");
         $query->execute();
         $admin = $query->fetchAll(PDO::FETCH_OBJ);
         return $admin;

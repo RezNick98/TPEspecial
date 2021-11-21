@@ -42,17 +42,17 @@ class userController
         $this->registerView->showRegister();
     }
     function verifyLogin(){
+        $Email=$_POST['Email'];
+        $Password=$_POST['Password'];
+        $usuario = $_POST['Nombreusuario'];
+        $userMail = $this->userModel->getUserMail($Email);
+        $user = $this->userModel->getUser($usuario);
         if(!empty($_POST['Email']) && !empty($_POST['Password']) && !empty($_POST['Nombreusuario'])){
-            $Email=$_POST['Email'];
-            $Password=$_POST['Password'];
-            $usuario = $_POST['Nombreusuario'];
-            $userMail = $this->userModel->getUserMail($Email);
-            $user = $this->userModel->getUser($usuario);
             if($user && $userMail && password_verify ($Password ,($user->Password ))){
                 session_start();
                 $_SESSION["Email"]=$Email;
                 $_SESSION["Nombreusuario"]=$user;
-                $_SESSION['admin'] = $user->rol;
+                $_SESSION['admin'] = $user->admin;
                 $this->loginView->showHome();
             }else{
                 $this->loginView->showLogin("Acceso denegado");

@@ -2,7 +2,7 @@
 class authHelper{
     function checkAdminLoggedIn(){
         session_start();
-        if($_SESSION['admin']==1){
+        if($_SESSION['admin']!=1){
             header("Location:".BASE_URL."login");
             die();
         }

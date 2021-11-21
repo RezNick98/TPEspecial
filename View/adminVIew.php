@@ -8,9 +8,9 @@ class adminView{
      $this->smarty = new Smarty();   
     }
     
-    public function showUsuarios($usuarios,$rol){
+    public function showUsuarios($usuarios,$admin){
         $this->smarty->assign('usuarios',$usuarios);
-        $this->smarty->assign('rol',$rol);
+        $this->smarty->assign('rol',$admin);
         $this->smarty->display('templates/admin.tpl');
 
 
