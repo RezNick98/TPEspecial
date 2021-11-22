@@ -1,27 +1,70 @@
 <?php
-require_once './Model/librosModel.php';
-require_once './Model/autoresModel.php';
+require_once './Model/comentariosModel.php';
 require_once './View/apiView.php';
 class apiController{
-    private $modelLibros;
-    private $modelAutores;
+    private $model;
     private $view;
     function __construct(){
-        $this->modelLibros = new librosModel();
-        $this->modelAutores = new autoresModel();
+        $this->model = new comentariosModel();
         $this->view = new apiView();
     }
-    function showBooks($params = []){
-        $books = $this->modelLibros->getBooks();
-        return $this->view->response($books,200);
+
+    function getComents(){
+        $coments = $this->model->getComents();
+        return $this->view->response($coments, 200);
     }
-    function showAutors($params = []){
-        $autors = $this->modelAutores->getAutors();
-        return $this->view->response($autors,200);
+
+    function getComent($params = []){
+        $idComent = $params[":ID"];
+        $coment = $this->model->getComent($idComent);
+        if($coment){
+            return $this->view->response($coment, 200);
+        }else{
+            return $this->view->response("El comentario con el id=$idComent no existe", 404);
+        }
     }
-    function showGenres($params = []){
-        $generos = $this->modelLibros->getBooks();
-        return $this->view->response($generos,200);
+
+    function deleteComent($params = null){
+        $idComent = $params[":ID"];
+        $coment = $this->model->getComent($idComent);
+
+        if($coment){
+            $coment = $this->model->deleteComent($idComent);
+            return $this->view->response("La tarea con el id=$idComent fue borrada", 200);
+        }else{
+            return $this->view->response("La tarea con el id=$idComent no existe", 404);
+        }
     }
+
+    function addComent($params = null){
+        $body = $this->getBody();
+
+        $id = $this->model->addComent($body->Id_usuariofk, $body->Comentario, $body->Puntaje, $body->Id_librofk);
+        if($id != 0){
+            $this->view->response("La tarea se inserto con el id=$id", 201);
+        }else{
+            $this->view->response("La tarea no se pudo insertar", 500);
+        }
+    }
+
+    function updateComent($params = null){
+        $idComent = $params[":ID"];
+        $body = $this->getBody();
+
+        $coment = $this->model->getComent($idComent);
+        if($coment){
+            $this->model->updateComent($idComent, $body->Comentario, $body->Puntaje);
+            $this->view->response("La tarea con el id=$idComent fue modificada", 200);
+        }else{
+            return $this->view->response("La tarea con el id=$idComent no existe", 404);
+        }
+    }
+
+    private function getBody(){
+        $bodyString = file_get_contents("php://input");
+        return json_decode($bodyString);
+    }
+
+    
 
 }

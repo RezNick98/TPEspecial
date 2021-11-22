@@ -1,4 +1,5 @@
 <?php
+require_once './libs/smarty-3.1.39/libs/Smarty.class.php';
 class apiView{
   public function response($data, $status) {
         header("Content-Type: application/json");
