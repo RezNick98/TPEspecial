@@ -25,7 +25,6 @@ class Controller{
         $this->view->showHome($books, $autors, $genero,$rol);
     }
     function showBooksByTabla($id_libro){
-        
         $item = $this->modelLibros->getBook($id_libro);
         $this->view->showBook($item);
     }

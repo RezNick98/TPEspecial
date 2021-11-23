@@ -13,6 +13,24 @@
 
     <a href='home' class="btn btn-primary mt-5"> Volver al home </a>
 
+    <hr>
+
+    <form id="form-comentarios" data-id_libros="{$item->id_libros}" class="formulario-comentarios">
+        <p>
+            Comentario:  <input type="text" name="comentario" id="comentario" value="" placeholder="Comentario.." required>
+            Puntaje: <input type="number" name="puntaje" id="puntaje" value="" placeholder="Puntaje" min="1" max="5">
+        </p>
+        <input type="submit" value="Comentar" class="btn btn-primary mt-5" id="btn-comentario">
+    </form>
+
+    <section>
+        <ul id="comentarios_section">
+            
+        </ul>
+    </section>
+
 </div>
 
-{include file="templates/footer.tpl"}
+
+
+{include file="templates/footerJS.tpl"}
