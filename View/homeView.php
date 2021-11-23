@@ -30,7 +30,8 @@ class homeView{
         $this->smarty->assign('items',$items);
         $this->smarty->display('templates/autorAndBooks.tpl');
     }
-    function showBook($item){
+    function showBook($item, $id){
+        $this->smarty->assign('id', $id);
         $this->smarty->assign('item',$item);
         $this->smarty->display('templates/libro.tpl');
     }

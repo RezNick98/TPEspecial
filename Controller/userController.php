@@ -34,6 +34,7 @@ class userController
             session_start();
             $_SESSION['email'] = $userEmail;
             $_SESSION['admin'] = $user->admin;
+            $_SESSION['id_usuario'] = $user->Id_usuario;
             $this->loginView->showHome();
             
         }
@@ -53,6 +54,7 @@ class userController
                 $_SESSION["Email"]=$Email;
                 $_SESSION["Nombreusuario"]=$user;
                 $_SESSION['admin'] = $user->admin;
+                $_SESSION['id_usuario'] = $user->Id_usuario;
                 $this->loginView->showHome();
             }else{
                 $this->loginView->showLogin("Acceso denegado");

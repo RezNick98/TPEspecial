@@ -9,8 +9,9 @@ class apiController{
         $this->view = new apiView();
     }
 
-    function getComents(){
-        $coments = $this->model->getComents();
+    function getComentariosConUsuario($params = []){
+        $idLibro = $params[":ID"];
+        $coments = $this->model->getComentariosConUsuario($idLibro);
         return $this->view->response($coments, 200);
     }
 
@@ -47,18 +48,18 @@ class apiController{
         }
     }
 
-    function updateComent($params = null){
-        $idComent = $params[":ID"];
-        $body = $this->getBody();
+    // function updateComent($params = null){
+    //     $idComent = $params[":ID"];
+    //     $body = $this->getBody();
 
-        $coment = $this->model->getComent($idComent);
-        if($coment){
-            $this->model->updateComent($idComent, $body->Comentario, $body->Puntaje);
-            $this->view->response("La tarea con el id=$idComent fue modificada", 200);
-        }else{
-            return $this->view->response("La tarea con el id=$idComent no existe", 404);
-        }
-    }
+    //     $coment = $this->model->getComent($idComent);
+    //     if($coment){
+    //         $this->model->updateComent($idComent, $body->Comentario, $body->Puntaje);
+    //         $this->view->response("La tarea con el id=$idComent fue modificada", 200);
+    //     }else{
+    //         return $this->view->response("La tarea con el id=$idComent no existe", 404);
+    //     }
+    // }
 
     private function getBody(){
         $bodyString = file_get_contents("php://input");

@@ -8,12 +8,13 @@ class comentariosModel{
         $this->dbComentarios =new PDO('mysql:host=localhost;'.'dbname=db_tpespecial;charset=utf8', 'root', '');        
     }
 
-    function getComents(){
-        $sentencia = $this->dbComentarios->prepare("SELECT * FROM comentarios");
-        $sentencia->execute();
+    function getComentariosConUsuario($id){
+        $sentencia = $this->dbComentarios->prepare("SELECT * FROM comentarios JOIN usuario ON comentarios.Id_usuariofk = usuario.Id_usuario WHERE Id_librofk=?");
+        $sentencia->execute(array($id));
         $coments = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $coments;
     }
+
     function getComent($id){
         $sentencia = $this->dbComentarios->prepare("SELECT * FROM comentarios WHERE Id_comentario=?");
         $sentencia->execute(array($id));

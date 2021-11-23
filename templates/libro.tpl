@@ -15,7 +15,7 @@
 
     <hr>
 
-    <form id="form-comentarios" data-id_libros="{$item->id_libros}" class="formulario-comentarios">
+    <form id="form-comentarios" data-id_libros="{$item->id_libros}" data-id_usuario="{$id}" class="formulario-comentarios">
         <p>
             Comentario:  <input type="text" name="comentario" id="comentario" value="" placeholder="Comentario.." required>
             Puntaje: <input type="number" name="puntaje" id="puntaje" value="" placeholder="Puntaje" min="1" max="5">
@@ -24,12 +24,13 @@
     </form>
 
     <section>
-        <ul id="comentarios_section">
-            
-        </ul>
+        <table id="comentarios-section">
+
+        </table>
     </section>
 
 </div>
+
 
 
 

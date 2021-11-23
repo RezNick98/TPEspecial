@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-23 05:10:55
+/* Smarty version 3.1.39, created on 2021-11-23 20:50:46
   from 'C:\xampp\htdocs\Tpe 2 web\TPEspecial\templates\libro.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619c69cf5d0660_30210797',
+  'unifunc' => 'content_619d461652e971_45365416',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6ab9840cb52d06b0cfd4ddb31a60f915c71b51d3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Tpe 2 web\\TPEspecial\\templates\\libro.tpl',
-      1 => 1637640424,
+      1 => 1637697044,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footerJS.tpl' => 1,
   ),
 ),false)) {
-function content_619c69cf5d0660_30210797 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619d461652e971_45365416 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -45,6 +45,7 @@ $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cach
     <hr>
 
     <form id="form-comentarios" data-id_libros="<?php echo $_smarty_tpl->tpl_vars['item']->value->id_libros;?>
+" data-id_usuario="<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 " class="formulario-comentarios">
         <p>
             Comentario:  <input type="text" name="comentario" id="comentario" value="" placeholder="Comentario.." required>
@@ -54,12 +55,13 @@ $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cach
     </form>
 
     <section>
-        <ul id="comentarios_section">
-            
-        </ul>
+        <table id="comentarios-section">
+
+        </table>
     </section>
 
 </div>
+
 
 
 
