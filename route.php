@@ -1,8 +1,8 @@
 <?php
 require_once 'Controller/Controller.php';
-require_once 'Controller/userController.php';
-require_once 'Controller/guestController.php';
-require_once 'Controller/adminController.php';
+require_once 'Controller/UserController.php';
+require_once 'Controller/GuestController.php';
+require_once 'Controller/AdminController.php';
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':'.$_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 if(!empty($_GET['action'])){
     $action = $_GET['action'];
@@ -11,9 +11,9 @@ if(!empty($_GET['action'])){
 }
 
 $Controller = new Controller();
-$userController=new userController();
-$guestController = new  guestController();
-$adminController = new adminController();
+$userController=new UserController();
+$guestController = new GuestController();
+$adminController = new AdminController();
 $params = explode('/',$action);
 var_dump($params);
 switch ($params[0]) {

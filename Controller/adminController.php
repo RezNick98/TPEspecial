@@ -1,17 +1,17 @@
 <?php
-require_once './View/adminView.php';
-require_once './Model/userModel.php';
-require_once './Helper/authHelper.php';
-class adminController
+require_once './View/AdminView.php';
+require_once './Model/UserModel.php';
+require_once './Helper/AuthHelper.php';
+class AdminController
 {
  private $view;
  private $model;
  private $authHelper;
  function __construct()
  {
-  $this->view = new adminView();
-  $this->model = new userModel();
-  $this->authHelper = new authHelper();   
+  $this->view = new AdminView();
+  $this->model = new UserModel();
+  $this->authHelper = new AuthHelper();   
  }   
 function showAdmin(){
     $rol = $this->authHelper->checkAdminLoggedIn();

@@ -1,12 +1,12 @@
 <?php
-require_once './Model/comentariosModel.php';
-require_once './View/apiView.php';
-class apiController{
+require_once './Model/ComentariosModel.php';
+require_once './View/ApiView.php';
+class ApiController{
     private $model;
     private $view;
     function __construct(){
-        $this->model = new comentariosModel();
-        $this->view = new apiView();
+        $this->model = new ComentariosModel();
+        $this->view = new ApiView();
     }
 
     function getComentariosConUsuario($params = []){

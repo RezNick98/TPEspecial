@@ -1,8 +1,8 @@
 <?php
-require_once './Model/librosModel.php';
-require_once './Model/autoresModel.php';
-require_once './View/homeView.php';
-require_once './Helper/authHelper.php';
+require_once './Model/LibrosModel.php';
+require_once './Model/AutoresModel.php';
+require_once './View/HomeView.php';
+require_once './Helper/AuthHelper.php';
 
 class Controller{
     private $modelLibros;
@@ -11,10 +11,10 @@ class Controller{
     private $authHelper;
     function __construct()
     {
-        $this->modelLibros = new librosModel();
-        $this->modelAutores = new autoresModel();
+        $this->modelLibros = new LibrosModel();
+        $this->modelAutores = new AutoresModel();
         $this->view = new HomeView();
-        $this->authHelper = new authHelper();
+        $this->authHelper = new AuthHelper();
     }
 
     function showHome(){

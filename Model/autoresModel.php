@@ -1,6 +1,5 @@
 <?php
-require_once 'Model/librosModel.php';
-class autoresModel{
+class AutoresModel{
     private $dbAutores;
     function __construct()
     {

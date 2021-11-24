@@ -1,6 +1,6 @@
 <?php
 
-class librosModel
+class LibrosModel
 {
     private $dbLibros;
     function __construct()

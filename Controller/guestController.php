@@ -1,17 +1,17 @@
 <?php
-require_once './Model/librosModel.php';
-require_once './Model/autoresModel.php';
-require_once './View/guestView.php';
+require_once './Model/LibrosModel.php';
+require_once './Model/AutoresModel.php';
+require_once './View/GuestView.php';
 
-class guestController{
+class GuestController{
     private $modelLibros;
     private $modelAutores;
     private $view;
     function __construct()
     {
-        $this->modelLibros = new librosModel();
-        $this->modelAutores=new autoresModel();
-        $this->view = new guestView();
+        $this->modelLibros = new LibrosModel();
+        $this->modelAutores=new AutoresModel();
+        $this->view = new GuestView();
     }
 
     function showHome(){

@@ -1,5 +1,5 @@
 <?php
-class authHelper{
+class AuthHelper{
     function checkAdminLoggedIn(){
         session_start();
         if($_SESSION['admin']!=1){

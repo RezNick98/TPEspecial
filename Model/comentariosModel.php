@@ -1,6 +1,6 @@
 <?php
 
-class comentariosModel{
+class ComentariosModel{
 
     private $dbComentarios;
 

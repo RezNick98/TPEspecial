@@ -1,17 +1,17 @@
 <?php
-require_once './Model/userModel.php';
-require_once './View/loginView.php';
-require_once './View/registerView.php';
-class userController
+require_once './Model/UserModel.php';
+require_once './View/LoginView.php';
+require_once './View/RegisterView.php';
+class UserController
 {
     private $userModel;
     private $loginView;
     private $registerView;
     function __construct()
     {
-        $this->userModel = new userModel();
-        $this->loginView = new loginView();
-        $this->registerView = new registerView();
+        $this->userModel = new UserModel();
+        $this->loginView = new LoginView();
+        $this->registerView = new RegisterView();
 
     } 
     function login(){
