@@ -44,4 +44,18 @@ class ComentariosModel{
         $comentsOrder = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $comentsOrder;
     }
+
+    function getComentsOrderAscen($id){
+        $sentencia = $this->dbComentarios->prepare("SELECT * FROM comentarios JOIN usuario ON comentarios.Id_usuariofk = usuario.Id_usuario WHERE Id_librofk=? ORDER BY Puntaje ASC");
+        $sentencia->execute(array($id));
+        $comentsOrder = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $comentsOrder;
+    }
+
+    function filtroPuntaje($id, $puntaje){
+        $sentencia = $this->dbComentarios->prepare("SELECT * FROM comentarios JOIN usuario ON comentarios.Id_usuariofk = usuario.Id_usuario WHERE Id_librofk= ? AND Puntaje= ?");
+        $sentencia->execute(array($id, $puntaje));
+        $comentsFiltro = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $comentsFiltro;
+    }
 }

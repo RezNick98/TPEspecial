@@ -14,7 +14,9 @@ function noEnvia(){
     console.log("no envia");
 }
 
-async function getComentarios(){
+getComentarios(url);
+
+async function getComentarios(url){
     try{
         let idLibro = form_comentarios.getAttribute('data-id_libros');
         let idUsuario = form_comentarios.getAttribute('data-id_usuario');
@@ -86,9 +88,6 @@ function crearEventoEliminar(id) {
     }
 }
 
-getComentarios();
-
-
 
 document.getElementById("btn-comentario").addEventListener("click", addComent);
 
@@ -115,7 +114,7 @@ async function addComent(){
         console.log(res);
             if(res.status === 201){
                 console.log("Se posteo con exito");
-                getComentarios();
+                getComentarios(url);
                 document.getElementById("comentario").value = "";
                 document.getElementById("puntaje").value = "";
             }
@@ -133,7 +132,7 @@ async function deleteComent(id) {
 
             if(res.status == 200){
                 console.log("Eliminado con exito");
-                getComentarios();
+                getComentarios(url);
             }
     }catch(error){
         console.log(error);
@@ -141,8 +140,26 @@ async function deleteComent(id) {
 }
 
 
-// document.getElementById("descendente").addEventListener("click", ordenar);
+document.getElementById("descendente").addEventListener("click", ordenarDesc);
 
-// function ordenar() {
-    
-// }
+function ordenarDesc(){
+    let urlDesc = url + '/orderDesc';
+    getComentarios(urlDesc);
+}
+
+document.getElementById("ascendente").addEventListener("click", ordenarAscen);
+
+function ordenarAscen(){
+    let urlAscen = url + '/orderAscen';
+    getComentarios(urlAscen);
+}
+
+document.getElementById("btn-filtro").addEventListener("click", filtrar);
+
+function filtrar(){
+
+    let puntaje = document.getElementById("filtroPuntaje").value;
+
+    let urlFiltro = url + `/filtro/${puntaje}`;
+    getComentarios(urlFiltro);
+}
