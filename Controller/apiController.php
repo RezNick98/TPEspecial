@@ -67,6 +67,19 @@ class ApiController{
         return $this->view->response($comentsOrder, 200);
     }
 
+    function getComentsOrderAscen($params = []){
+        $id = $params[":ID"];
+        $comentsOrder = $this->model->getComentsOrderAscen($id);
+        return $this->view->response($comentsOrder, 200);
+    }
+
+    function filtroPuntaje($params = []){
+        $id = $params[":ID"];
+        $puntaje = $params[":Puntaje"];
+        $comentsFiltro = $this->model->filtroPuntaje($id, $puntaje);
+        return $this->view->response($comentsFiltro, 200);
+    }
+
     private function getBody(){
         $bodyString = file_get_contents("php://input");
         return json_decode($bodyString);
