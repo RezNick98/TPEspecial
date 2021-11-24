@@ -14,6 +14,7 @@ function noEnvia(){
 async function getComentarios(){
     try{
         let idLibro = form_comentarios.getAttribute('data-id_libros');
+        let idUsuario = form_comentarios.getAttribute('data-id_usuario');
             console.log(idLibro);
         let res = await fetch(`http://localhost/Tpe%202%20web/TPEspecial/api/comentarios/${idLibro}`);
         if(res.status == 200){
@@ -23,24 +24,50 @@ async function getComentarios(){
                 section.innerHTML = " ";
 
             for (const comentario of tablaComentario) {
+                let idComentario = comentario.Id_comentario;
                 let usuario = comentario.Nombreusuario;
                 let comentarioString = comentario.Comentario;
                 let puntaje = comentario.Puntaje;
                 let id = comentario.Id_librofk;
-                section.innerHTML += 
-                `
-                <thead>
-                    <th>Usuario: ${usuario}</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>${comentarioString}</td>
-                        <td>Puntaje: ${puntaje}</td>
-                        <td>N°Libro: ${id}</td>
-                    </tr>
-                </tbody>
-                `
-                console.log(comentario);
+                if(idUsuario > 0){
+                    section.innerHTML += 
+                    `
+                    <thead>
+                        <th>Usuario: ${usuario}</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>${comentarioString}</td>
+                            <td>Puntaje: ${puntaje}</td>
+                            <td>N°Libro: ${id}</td>
+                        </tr>
+                    </tbody>
+                    `
+                    console.log(comentario);
+                }else{
+                    section.innerHTML += 
+                    `
+                    <thead>
+                        <th>Usuario: ${usuario}</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>${comentarioString}</td>
+                            <td>Puntaje: ${puntaje}</td>
+                            <td>N°Libro: ${id}</td>
+                        </tr>
+                        <tr>
+                            <td><button id="${idComentario}">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+                    `
+                    
+                    console.log(idComentario);
+                    setTimeout(function(){
+                        crearEventoEliminar(`${idComentario}`);
+                    }, 1)
+                }
+                
             }
         }
     }catch(error){
@@ -48,7 +75,18 @@ async function getComentarios(){
     }
 }
 
+function crearEventoEliminar(id) {
+    if(id != null){
+    document.getElementById(`${id}`).addEventListener("click", function(){
+        deleteComent(id);
+    });
+    }
+
+}
+
 getComentarios();
+
+
 
 document.getElementById("btn-comentario").addEventListener("click", addComent);
 
@@ -71,13 +109,30 @@ async function addComent(){
             "headers": {"Content-type": "application/json"},
             "body": JSON.stringify(coment)
         });
-        
+        console.log(res);
             if(res.status === 201){
+                console.log("Se posteo con exito");
                 getComentarios();
-                
+                document.getElementById("comentario").value = "";
+                document.getElementById("puntaje").value = "";
             }
     }catch(error){
         console.log(error);
     }
 
+}
+
+async function deleteComent(id) {
+    try{
+        let res = await fetch(`http://localhost/Tpe%202%20web/TPEspecial/api/comentarios/${id}`, {
+            "method": "DELETE"
+        });
+
+            if(res.status == 200){
+                console.log("Eliminado con exito");
+                getComentarios();
+            }
+    }catch(error){
+        console.log(error);
+    }
 }
