@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-23 20:50:46
+/* Smarty version 3.1.39, created on 2021-11-24 19:25:12
   from 'C:\xampp\htdocs\Tpe 2 web\TPEspecial\templates\libro.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619d461652e971_45365416',
+  'unifunc' => 'content_619e838815f6d9_21754781',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6ab9840cb52d06b0cfd4ddb31a60f915c71b51d3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Tpe 2 web\\TPEspecial\\templates\\libro.tpl',
-      1 => 1637697044,
+      1 => 1637778297,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footerJS.tpl' => 1,
   ),
 ),false)) {
-function content_619d461652e971_45365416 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619e838815f6d9_21754781 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -52,9 +52,11 @@ $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cach
             Puntaje: <input type="number" name="puntaje" id="puntaje" value="" placeholder="Puntaje" min="1" max="5">
         </p>
         <input type="submit" value="Comentar" class="btn btn-primary mt-5" id="btn-comentario">
+        
     </form>
 
     <section>
+        <button id="descendente">Ordenar de manera descendente</button>
         <table id="comentarios-section">
 
         </table>

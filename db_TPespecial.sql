@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-11-2021 a las 20:57:27
--- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.12
+-- Tiempo de generación: 24-11-2021 a las 19:57:23
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,10 +49,22 @@ INSERT INTO `autores` (`Id_autor`, `Nombre`, `Apellido`) VALUES
 
 CREATE TABLE `comentarios` (
   `Id_comentario` int(11) NOT NULL,
-  `Username` varchar(45) NOT NULL,
+  `Id_usuariofk` varchar(45) NOT NULL,
   `Comentario` varchar(100) NOT NULL,
-  `Puntaje` int(11) NOT NULL
+  `Puntaje` int(11) NOT NULL,
+  `Id_librofk` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`Id_comentario`, `Id_usuariofk`, `Comentario`, `Puntaje`, `Id_librofk`) VALUES
+(37, '0', 'a', 4, 10),
+(38, '0', 'AWDA', 2, 10),
+(39, '0', '', 0, 10),
+(42, '0', 'soy messi', 5, 4),
+(68, '73', 'a', 4, 10);
 
 -- --------------------------------------------------------
 
@@ -75,7 +87,8 @@ CREATE TABLE `libros` (
 INSERT INTO `libros` (`id_libros`, `Titulo`, `Genero`, `Descripcion`, `fk_Id_autor`) VALUES
 (1, 'The shinning', 'Terror', 'AAAAAAA', 1),
 (4, 'Viaje al centro de la tierra', 'Fantasia', 'FFFFF', 2),
-(9, 'Los perros de tindalos', 'Terror', 'LOLOLOLL', 1);
+(9, 'Los perros de tindalos', 'Terror', 'LOLOLOLL', 1),
+(10, 'it', 'Terror', 'AWDADAWD', 1);
 
 -- --------------------------------------------------------
 
@@ -98,7 +111,9 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`Id_usuario`, `Email`, `Password`, `Nombreusuario`, `admin`) VALUES
 (0, 'admin@admin.com', '$2y$10$L.EC4/MwfYwvveakUW8Uk.VsnvegFZ33xmXasx1jBnffJSP8XvSfO', 'admin', 1),
 (68, 'myprime@prime.com', '$2y$10$8vIiYLFVAKZWxeGJfUXeO.DA6ZWgq7k4uK.n3ALI4DU71fuS/A9Gy', 'reznick', 0),
-(70, 're_Nick@prime.com', '$2y$10$3LcDJPSetfClZD2Wo/8C5.K8fIXOCyo9mSj8vvz5KsKdxaIvbhWV6', 'reznick', 0);
+(70, 're_Nick@prime.com', '$2y$10$3LcDJPSetfClZD2Wo/8C5.K8fIXOCyo9mSj8vvz5KsKdxaIvbhWV6', 'reznick', 0),
+(72, 'maxileonel.oth@gmail.com', '$2y$10$msQDXvBjcI9P9YLRCd.d1Oj14ad2hzjZqBtMnmDSrs/S8umt203jK', 'Maxi', 0),
+(73, 'leoMessi@yahoo.com', '$2y$10$Jwk2qsefTtEuiDCtB18qzOCHd2ftyUjR4rlLwFAwme6PI3nR6qM36', 'Leonel', 0);
 
 --
 -- Índices para tablas volcadas
@@ -137,19 +152,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `Id_comentario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id_libros` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_libros` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `Id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `Id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- Restricciones para tablas volcadas

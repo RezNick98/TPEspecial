@@ -37,4 +37,11 @@ class ComentariosModel{
         $sentencia = $this->dbComentarios->prepare("UPDATE comentarios SET Comentario = ?, Puntaje = ? WHERE Id_Comentario=?");
         $sentencia->execute(array($comentario, $puntaje, $idComent));
     }
+
+    function getComentsOrderDesc($id){
+        $sentencia = $this->dbComentarios->prepare("SELECT * FROM comentarios JOIN usuario ON comentarios.Id_usuariofk = usuario.Id_usuario WHERE Id_librofk=? ORDER BY Puntaje DESC");
+        $sentencia->execute(array($id));
+        $comentsOrder = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $comentsOrder;
+    }
 }

@@ -61,6 +61,12 @@ class ApiController{
     //     }
     // }
 
+    function getComentsOrderDesc($params = []){
+        $id = $params[":ID"];
+        $comentsOrder = $this->model->getComentsOrderDesc($id);
+        return $this->view->response($comentsOrder, 200);
+    }
+
     private function getBody(){
         $bodyString = file_get_contents("php://input");
         return json_decode($bodyString);

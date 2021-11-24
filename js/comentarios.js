@@ -1,5 +1,8 @@
 "use strict"
 
+console.log("hola");
+
+const url = `http://localhost/Tpe%202%20web/TPEspecial/api/comentarios`;
 const form_comentarios = document.getElementById("form-comentarios");
 
 let prueba = form_comentarios.getAttribute('data-id_usuario');
@@ -16,7 +19,7 @@ async function getComentarios(){
         let idLibro = form_comentarios.getAttribute('data-id_libros');
         let idUsuario = form_comentarios.getAttribute('data-id_usuario');
             console.log(idLibro);
-        let res = await fetch(`http://localhost/Tpe%202%20web/TPEspecial/api/comentarios/${idLibro}`);
+        let res = await fetch(`${url}/${idLibro}`);
         if(res.status == 200){
             console.log(res);
             let tablaComentario = await res.json();
@@ -81,7 +84,6 @@ function crearEventoEliminar(id) {
         deleteComent(id);
     });
     }
-
 }
 
 getComentarios();
@@ -102,9 +104,10 @@ async function addComent(){
         "Puntaje": puntaje,
         "Id_librofk": idLibro
     }
+    console.log(coment);
 
     try{
-        let res = await fetch(`http://localhost/Tpe%202%20web/TPEspecial/api/comentarios`, {
+        let res = await fetch(`${url}`, {
             "method": "POST",
             "headers": {"Content-type": "application/json"},
             "body": JSON.stringify(coment)
@@ -124,7 +127,7 @@ async function addComent(){
 
 async function deleteComent(id) {
     try{
-        let res = await fetch(`http://localhost/Tpe%202%20web/TPEspecial/api/comentarios/${id}`, {
+        let res = await fetch(`${url}/${id}`, {
             "method": "DELETE"
         });
 
@@ -136,3 +139,10 @@ async function deleteComent(id) {
         console.log(error);
     }
 }
+
+
+// document.getElementById("descendente").addEventListener("click", ordenar);
+
+// function ordenar() {
+    
+// }
