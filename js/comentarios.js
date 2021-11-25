@@ -97,6 +97,12 @@ async function addComent(){
     let puntaje = document.getElementById("puntaje").value;
     let idLibro = form_comentarios.getAttribute('data-id_libros');
 
+    if(puntaje > 5 || puntaje < 1){
+        puntaje = 1;
+    }
+
+    console.log(puntaje);
+
     let coment = {
         "Id_usuariofk": idUsuario,
         "Comentario": comentario,
@@ -104,6 +110,12 @@ async function addComent(){
         "Id_librofk": idLibro
     }
     console.log(coment);
+
+    sendComent(coment);
+
+}
+
+async function sendComent(coment){
 
     try{
         let res = await fetch(`${url}`, {
