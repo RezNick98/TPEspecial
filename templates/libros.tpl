@@ -1,11 +1,8 @@
 {include file="templates/header.tpl"}
 
 <nav class="nav">
-    <p>Autores: 
-    {foreach from=$autors item=$autor}    
-        <a class="btn btn-secondary mt-2 mb-2" href="autorLibros/{$autor->Id_autor}">{$autor->Nombre} {$autor->Apellido}</a>
-    {/foreach}
-    
+    <p>
+        <a class="btn btn-secondary mt-2 mb-2" href="autores">Autores</a>
     </p>
     <p>Generos:
     {foreach from=$genero item=$gen}
@@ -48,9 +45,10 @@
          <label>TItulo: </label><input type="text" name="titulo">
         <label>Genero: </label> <input type="text" name="genero">
         <label>Descripcion: </label> <textarea name="texto"cols="30" rows="1"></textarea>
+        <label>Nunmero del autor</label>
     <select name="select">
-        {foreach from=$autors item=$autor}    
-            <option value="{$autor->Id_autor}">{$autor->Nombre} {$autor->Apellido}</option>
+        {foreach from=$books item=$book}    
+            <option value="{$book->fk_Id_autor}">{$book->fk_Id_autor}</option>
         {/foreach}
     </select>
         <input class="btn btn-success" type="submit" value="Enviar">

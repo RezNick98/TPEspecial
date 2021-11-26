@@ -1,5 +1,6 @@
 <?php
-require_once 'Controller/Controller.php';
+require_once 'Controller/AutoresController.php';
+require_once 'Controller/LibrosController.php';
 require_once 'Controller/UserController.php';
 require_once 'Controller/GuestController.php';
 require_once 'Controller/AdminController.php';
@@ -10,7 +11,8 @@ if(!empty($_GET['action'])){
     $action='home';
 }
 
-$Controller = new Controller();
+$AutoresController = new AutoresController();
+$LibrosController = new LibrosController();
 $userController=new UserController();
 $guestController = new GuestController();
 $adminController = new AdminController();
@@ -33,25 +35,37 @@ switch ($params[0]) {
         $userController->verifyLogin();
         break;
     case 'home':
-        $Controller->showHome();
+        $LibrosController->showHome();
+        break;
+    case 'autores':
+        $AutoresController->showAutors();
         break;
     case 'autorLibros':
-        $Controller->showBooksByAutor($params[1]);
+        $AutoresController->showBooksByAutor($params[1]);
         break;
     case 'viewDescripcion':
-        $Controller->showBooksByTabla($params[1]);
+        $LibrosController->showBooksByTabla($params[1]);
         break;
     case 'generosLibros':
-        $Controller->showBooksByGenero($params[1]);
+        $LibrosController->showBooksByGenero($params[1]);
         break;
     case 'agregarLibro':
-        $Controller->agregarLibro();
+        $LibrosController->agregarLibro();
         break;
     case 'deleteBook':
-        $Controller->deleteBook($params[1]);
+        $LibrosController->deleteBook($params[1]);
         break;
     case 'updateBook':
-        $Controller->updateBook();
+        $LibrosController->updateBook();
+        break;
+    case 'agregarAutor':
+        $AutoresController->agregarAutor();
+        break;
+    case 'modificarAutor':
+        $AutoresController->modificarAutor();
+        break;
+    case 'eliminarAutor':
+        $AutoresController->eliminarAutor($params[1]);
         break;
     case 'guest':
         $guestController->showHome();
