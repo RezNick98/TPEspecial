@@ -1,7 +1,7 @@
 <?php
 require_once './libs/smarty-3.1.39/libs/Smarty.class.php';
 
-class HomeView{
+class LibrosView{
     private $smarty;
     function __construct()
     {
@@ -11,10 +11,9 @@ class HomeView{
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
     }
-    function showHome($books, $autors, $genero, $rol){
+    function showHome($books, $genero, $rol){
         $this->smarty->assign('genero', $genero);
         $this->smarty->assign('books', $books);
-        $this->smarty->assign('autors', $autors);
         $this->smarty->assign('rol',$rol);
         $this->smarty->display('templates/libros.tpl');
     }
@@ -26,10 +25,7 @@ class HomeView{
         $this->smarty->assign('autors', $autors);
         $this->smarty->display('templates/libros.tpl');
     }
-    function showBooksAutor($items){
-        $this->smarty->assign('items',$items);
-        $this->smarty->display('templates/autorAndBooks.tpl');
-    }
+    
     function showBook($item, $id){
         $this->smarty->assign('id', $id);
         $this->smarty->assign('item',$item);

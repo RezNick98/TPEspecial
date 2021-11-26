@@ -17,7 +17,16 @@ class AutoresModel{
         $items=$query->fetchAll((PDO::FETCH_OBJ));
         return $items;
     }
-    function deleteAutor(){
-        
+    function crearAutor($nombre, $apellido){
+        $sentencia = $this->dbAutores->prepare("INSERT INTO Autores(Nombre, Apellido) VALUES(?, ?)");
+        $sentencia->execute(array($nombre, $apellido));
+    }
+    function modificarAutor($nombre, $apellido, $Id_autor){
+        $sentencia = $this->dbAutores->prepare("UPDATE Autores SET Nombre = '$nombre', Apellido = '$apellido' WHERE Id_autor = $Id_autor");
+        $sentencia->execute();
+    }
+    function eliminarAutor($id){
+        $sentencia = $this->dbAutores->prepare("DELETE FROM Autores WHERE Id_autor=?");
+        $sentencia->execute(array($id));
     }
 }

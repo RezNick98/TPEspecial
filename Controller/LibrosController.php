@@ -1,37 +1,29 @@
 <?php
 require_once './Model/LibrosModel.php';
-require_once './Model/AutoresModel.php';
-require_once './View/HomeView.php';
+require_once './View/LibrosView.php';
 require_once './Helper/AuthHelper.php';
 
-class Controller{
+class LibrosController{
     private $modelLibros;
-    private $modelAutores;
     private $view;
     private $authHelper;
     function __construct()
     {
         $this->modelLibros = new LibrosModel();
-        $this->modelAutores = new AutoresModel();
-        $this->view = new HomeView();
+        $this->view = new LibrosView();
         $this->authHelper = new AuthHelper();
     }
 
     function showHome(){
         $genero = $this->modelLibros->getGenProm();
         $books = $this->modelLibros->getBooks();
-        $autors = $this->modelAutores->getAutors();
         $rol = $this->authHelper->checkRol();
-        $this->view->showHome($books, $autors, $genero,$rol);
+        $this->view->showHome($books, $genero,$rol);
     }
     function showBooksByTabla($id_libro){
         $id = $this->authHelper->returnUserId();
         $item = $this->modelLibros->getBook($id_libro);
         $this->view->showBook($item, $id);
-    }
-    function showBooksByAutor($Id_autor){
-        $itemsAutor=$this->modelAutores->getAutor($Id_autor);
-        $this->view->showBooksAutor($itemsAutor);
     }
     function showBooksByGenero($genero){
         $gen = $this->modelLibros->getLibrosGenero($genero);
