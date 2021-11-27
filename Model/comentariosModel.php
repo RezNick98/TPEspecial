@@ -9,7 +9,7 @@ class ComentariosModel{
     }
 
     function getComentariosConUsuario($id){
-        $sentencia = $this->dbComentarios->prepare("SELECT * FROM comentarios INNER JOIN usuario ON comentarios.Id_usuariofk = usuario.Id_usuario WHERE Id_librofk=?");
+        $sentencia = $this->dbComentarios->prepare("SELECT * FROM comentarios INNER JOIN usuario ON comentarios.Id_usuariofk = usuario.Id_usuario ");
         $sentencia->execute(array($id));
         $coments = $sentencia->fetchAll(PDO::FETCH_OBJ);
         return $coments;
