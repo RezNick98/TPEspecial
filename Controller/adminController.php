@@ -32,6 +32,7 @@ function removeAdmin($Id_usuario){
 
 function deleteUsuario($Id_usuario){
     $this->authHelper->checkAdminLoggedIn();
+    
     $this->model->deleteUser($Id_usuario);
     $this->view->showAdminViewLocation();
 }

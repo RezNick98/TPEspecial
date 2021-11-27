@@ -25,8 +25,8 @@ class AutoresModel{
         $sentencia = $this->dbAutores->prepare("UPDATE Autores SET Nombre = '$nombre', Apellido = '$apellido' WHERE Id_autor = $Id_autor");
         $sentencia->execute();
     }
-    function eliminarAutor($id){
+    function eliminarAutor($Id_autor){
         $sentencia = $this->dbAutores->prepare("DELETE FROM Autores WHERE Id_autor=?");
-        $sentencia->execute(array($id));
+        $sentencia->execute(array($Id_autor));
     }
 }
