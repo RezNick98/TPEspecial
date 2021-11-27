@@ -45,10 +45,10 @@
          <label>TItulo: </label><input type="text" name="titulo">
         <label>Genero: </label> <input type="text" name="genero">
         <label>Descripcion: </label> <textarea name="texto"cols="30" rows="1"></textarea>
-        <label>Nunmero del autor</label>
+        <label>Numero del autor</label>
     <select name="select">
         {foreach from=$books item=$book}    
-            <option value="{$book->fk_Id_autor}">{$book->fk_Id_autor}</option>
+            <option value="{$book->fk_Id_autor}">{$book->Id_autor}</option>
         {/foreach}
     </select>
         <input class="btn btn-success" type="submit" value="Enviar">

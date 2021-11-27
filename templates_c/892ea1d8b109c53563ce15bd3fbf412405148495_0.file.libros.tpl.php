@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-26 23:14:52
+/* Smarty version 3.1.39, created on 2021-11-27 21:13:28
   from 'C:\xampp\htdocs\TPEspecial\templates\libros.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61a15c5c8cffd1_99207077',
+  'unifunc' => 'content_61a2916834fe86_43439990',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '892ea1d8b109c53563ce15bd3fbf412405148495' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEspecial\\templates\\libros.tpl',
-      1 => 1637964639,
+      1 => 1638044007,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_61a15c5c8cffd1_99207077 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61a2916834fe86_43439990 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\TPEspecial\\libs\\smarty-3.1.39\\libs\\plugins\\modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -93,7 +93,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
          <label>TItulo: </label><input type="text" name="titulo">
         <label>Genero: </label> <input type="text" name="genero">
         <label>Descripcion: </label> <textarea name="texto"cols="30" rows="1"></textarea>
-        <label>Nunmero del autor</label>
+        <label>Numero del autor</label>
     <select name="select">
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['books']->value, 'book');
@@ -102,7 +102,7 @@ if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['book']->value) {
 $_smarty_tpl->tpl_vars['book']->do_else = false;
 ?>    
             <option value="<?php echo $_smarty_tpl->tpl_vars['book']->value->fk_Id_autor;?>
-"><?php echo $_smarty_tpl->tpl_vars['book']->value->fk_Id_autor;?>
+"><?php echo $_smarty_tpl->tpl_vars['book']->value->Id_autor;?>
 </option>
         <?php
 }
