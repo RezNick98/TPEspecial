@@ -15,24 +15,26 @@
 
     <hr>
 
-    <form id="form-comentarios" data-id_libros="{$item->id_libros}" data-id_usuario="{$user[0]}" data-rol="{$user[1]}" class="formulario-comentarios">
-        <p>
-            Comentario:  <input type="text" name="comentario" id="comentario" value="" placeholder="Comentario.." required>
-            Puntaje: <input type="number" name="puntaje" id="puntaje" value="" placeholder="Puntaje" min="1" max="5">
-        </p>
-        <input type="submit" value="Comentar" class="btn btn-primary mt-5" id="btn-comentario">
+    {if $user[1] != -1}
+        <form id="form-comentarios" data-id_libros="{$item->id_libros}" data-id_usuario="{$user[0]}" data-rol="{$user[1]}" class="formulario-comentarios">
+            <p>
+                Comentario:  <input type="text" name="comentario" id="comentario" value="" placeholder="Comentario.." required>
+                Puntaje: <input type="number" name="puntaje" id="puntaje" value="" placeholder="Puntaje" min="1" max="5">
+            </p>
+            <input type="submit" value="Comentar" class="btn btn-primary mt-5" id="btn-comentario">
         
-    </form>
-
-    <section>
-        <button id="descendente">Ordenar de manera descendente</button>
-        <button id="ascendente">Ordenar de manera ascendente</button>
-        Filtrar por Puntaje<input type="number" id="filtroPuntaje"> <button id="btn-filtro">Filtrar</button>
-        <table id="comentarios-section">
-
-        </table>
-    </section>
-
+        </form>
+        
+        <section>
+            <button id="descendente">Ordenar de manera descendente</button>
+            <button id="ascendente">Ordenar de manera ascendente</button>
+            Filtrar por Puntaje<input type="number" id="filtroPuntaje"> <button id="btn-filtro">Filtrar</button>
+            <table id="comentarios-section">
+        
+            </table>
+        </section>
+    {/if}
+    
 </div>
 
 

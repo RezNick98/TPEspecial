@@ -6,7 +6,9 @@
             <th>Nombre</th>
             <th>Apellido</th>
             <th><hr/></th>
-            <th>Eliminar</th>
+            {if $idAndRol[1] == 1}
+                <th>Eliminar</th>
+            {/if}
         </thead>
         <tbody>
         {foreach from=$items item=$item}       
@@ -15,32 +17,39 @@
                 <td>{$item->Nombre|upper}</td>
                 <td>{$item->Apellido}</td>
                 <td> <a class="btn btn-info" href="autorLibros/{$item->Id_autor}">Leer mas...</a> </td>
-                <td> <a class="btn btn-danger" href="eliminarAutor/{$item->Id_autor}">Eliminar</a> </td>
+                {if $idAndRol[1] == 1}
+                    <td> <a class="btn btn-danger" href="eliminarAutor/{$item->Id_autor}">Eliminar</a> </td>
+                {/if}
             </tr>
         {/foreach}
     </tbody>
 </table>
 
-<h2>Registre un nuevo autor</h2>
-
-<form action="agregarAutor" method="POST">
-         <label>Nombre: </label><input type="text" name="Nombre">
+{if $idAndRol[1] == 1}
+     
+    <h2>Registre un nuevo autor</h2>
+    
+    <form action="agregarAutor" method="POST">
+    <label>Nombre: </label><input type="text" name="Nombre">
+    <label>Apellido: </label> <input type="text" name="Apellido">
+    <input class="btn btn-success" type="submit" value="Enviar">
+    </form>
+    
+    <h2>Modifique un autor existente</h2>
+    
+    <form action="updateBook" method="POST">
+    <label>Nombre: </label><input type="text" name="Nombre">
         <label>Apellido: </label> <input type="text" name="Apellido">
-        <input class="btn btn-success" type="submit" value="Enviar">
-</form>
-
-<h2>Modifique un autor existente</h2>
-
-<form action="updateBook" method="POST">
-         <label>Nombre: </label><input type="text" name="Nombre">
-        <label>Apellido: </label> <input type="text" name="Apellido">
-    <select name="select">
+        <select name="select">
         {foreach from=$items item=$item}    
             <option value="{$item->Id_autor}">{$item->Nombre} {$item->Apellido}</option>
         {/foreach}
-    </select>
+        </select>
         <input class="btn btn-success" type="submit" value="Modificar">
-</form>
+        </form>
+    
+{/if}
+
 <a href="home" class="btn btn-primary mt-5">Volver</a>
 
 {include file="templates/footer.tpl"}

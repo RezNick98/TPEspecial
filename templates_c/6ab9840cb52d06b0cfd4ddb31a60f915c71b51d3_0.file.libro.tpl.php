@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-28 05:35:17
+/* Smarty version 3.1.39, created on 2021-11-28 20:55:18
   from 'C:\xampp\htdocs\Tpe 2 web\TPEspecial\templates\libro.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61a30705a29973_31253170',
+  'unifunc' => 'content_61a3dea62f9453_52055910',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '6ab9840cb52d06b0cfd4ddb31a60f915c71b51d3' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Tpe 2 web\\TPEspecial\\templates\\libro.tpl',
-      1 => 1638074115,
+      1 => 1638129316,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footerJS.tpl' => 1,
   ),
 ),false)) {
-function content_61a30705a29973_31253170 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61a3dea62f9453_52055910 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -44,27 +44,29 @@ $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cach
 
     <hr>
 
-    <form id="form-comentarios" data-id_libros="<?php echo $_smarty_tpl->tpl_vars['item']->value->id_libros;?>
+    <?php if ($_smarty_tpl->tpl_vars['user']->value[1] != -1) {?>
+        <form id="form-comentarios" data-id_libros="<?php echo $_smarty_tpl->tpl_vars['item']->value->id_libros;?>
 " data-id_usuario="<?php echo $_smarty_tpl->tpl_vars['user']->value[0];?>
 " data-rol="<?php echo $_smarty_tpl->tpl_vars['user']->value[1];?>
 " class="formulario-comentarios">
-        <p>
-            Comentario:  <input type="text" name="comentario" id="comentario" value="" placeholder="Comentario.." required>
-            Puntaje: <input type="number" name="puntaje" id="puntaje" value="" placeholder="Puntaje" min="1" max="5">
-        </p>
-        <input type="submit" value="Comentar" class="btn btn-primary mt-5" id="btn-comentario">
+            <p>
+                Comentario:  <input type="text" name="comentario" id="comentario" value="" placeholder="Comentario.." required>
+                Puntaje: <input type="number" name="puntaje" id="puntaje" value="" placeholder="Puntaje" min="1" max="5">
+            </p>
+            <input type="submit" value="Comentar" class="btn btn-primary mt-5" id="btn-comentario">
         
-    </form>
-
-    <section>
-        <button id="descendente">Ordenar de manera descendente</button>
-        <button id="ascendente">Ordenar de manera ascendente</button>
-        Filtrar por Puntaje<input type="number" id="filtroPuntaje"> <button id="btn-filtro">Filtrar</button>
-        <table id="comentarios-section">
-
-        </table>
-    </section>
-
+        </form>
+        
+        <section>
+            <button id="descendente">Ordenar de manera descendente</button>
+            <button id="ascendente">Ordenar de manera ascendente</button>
+            Filtrar por Puntaje<input type="number" id="filtroPuntaje"> <button id="btn-filtro">Filtrar</button>
+            <table id="comentarios-section">
+        
+            </table>
+        </section>
+    <?php }?>
+    
 </div>
 
 

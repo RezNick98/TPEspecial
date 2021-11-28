@@ -11,6 +11,11 @@ class UserModel
         $sentencia = $this->dbUser->prepare("INSERT INTO usuario(Email,Password,Nombreusuario) VALUES(?, ?, ?)");
         $sentencia->execute([$Email,$Password,$Nombreusuario]);
     }
+    function createUserGuest($Email, $Password, $Nombreusuario, $admin){
+        $Password= password_hash($_POST['Password'],PASSWORD_BCRYPT);
+        $sentencia = $this->dbUser->prepare("INSERT INTO usuario(Email,Password,Nombreusuario,admin) VALUES(?, ?, ?, ?)");
+        $sentencia->execute([$Email,$Password, $Nombreusuario, $admin]);
+    }
     function getAllUsers(){
         $query = $this->dbUser->prepare("SELECT * FROM usuario");
         $query->execute();

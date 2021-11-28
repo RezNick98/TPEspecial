@@ -2,24 +2,37 @@
 require_once './Model/UserModel.php';
 require_once './View/LoginView.php';
 require_once './View/RegisterView.php';
+require_once './Helper/AuthHelper.php';
+
 class UserController
 {
     private $userModel;
     private $loginView;
     private $registerView;
+    private $authHelper;
     function __construct()
     {
         $this->userModel = new UserModel();
         $this->loginView = new LoginView();
         $this->registerView = new RegisterView();
-
+        $this->authHelper = new AuthHelper();
     } 
     function login(){
         $this->loginView->showLogin();
     }
     function logout(){
-        session_start();
-        session_destroy();
+        $idAndRol = $this->authHelper->returnUserIdAndRol();
+
+        $id = $idAndRol[0];
+        $rol = $idAndRol[1];
+
+        if($rol == -1 && $rol != null){
+            $this->userModel->deleteUser($id);
+            session_destroy();
+        }else{
+            session_destroy();
+        }
+        
         $this->loginView->showLogin("Goodbye :)");
     }
     function createAccount(){
@@ -38,6 +51,22 @@ class UserController
             $this->loginView->showHome();
             
         }
+    }
+    function createAccountGuest(){
+        $userEmail = "guest@.com";
+        $PasswordAleatorio = rand(1, 100)*5;
+        $Password = password_hash($PasswordAleatorio, PASSWORD_BCRYPT);
+        $username = "guest";
+        $admin = -1;
+            
+        $this->userModel->createUserGuest($userEmail, $Password,$username, $admin);
+        $user = $this->userModel->getUser($username, $userEmail);
+            
+        session_start();
+        $_SESSION['email'] = $userEmail;
+        $_SESSION['admin'] = $user->admin;
+        $_SESSION['id_usuario'] = $user->Id_usuario;
+        $this->loginView->showHome();
     }
     function register(){
         $this->registerView->showRegister();

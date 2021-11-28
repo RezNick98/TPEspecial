@@ -33,7 +33,7 @@ async function getComentarios(url){
                 let comentarioString = comentario.Comentario;
                 let puntaje = comentario.Puntaje;
                 let id = comentario.Id_librofk;
-                if(rol < 1){
+                if(rol == 0){
                     section.innerHTML += 
                     `
                     <thead>
@@ -49,27 +49,29 @@ async function getComentarios(url){
                     `
                     console.log(comentario);
                 }else{
-                    section.innerHTML += 
-                    `
-                    <thead>
-                        <th>Usuario: ${usuario}</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>${comentarioString}</td>
-                            <td>Puntaje: ${puntaje}</td>
-                            <td>N°Libro: ${id}</td>
-                        </tr>
-                        <tr>
-                            <td><button id="${idComentario}">Eliminar</button></td>
-                        </tr>
-                    </tbody>
-                    `
-                    
-                    console.log(idComentario);
-                    setTimeout(function(){
-                        crearEventoEliminar(`${idComentario}`);
-                    }, 1)
+                    if(rol == 1){
+                        section.innerHTML += 
+                        `
+                        <thead>
+                            <th>Usuario: ${usuario}</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>${comentarioString}</td>
+                                <td>Puntaje: ${puntaje}</td>
+                                <td>N°Libro: ${id}</td>
+                            </tr>
+                            <tr>
+                                <td><button id="${idComentario}">Eliminar</button></td>
+                            </tr>
+                        </tbody>
+                        `
+                        
+                        console.log(idComentario);
+                        setTimeout(function(){
+                            crearEventoEliminar(`${idComentario}`);
+                        }, 1)
+                    }
                 }
                 
             }

@@ -17,7 +17,8 @@ class AutoresController{
 
     function showAutors(){
         $autores = $this->modelAutores->getAutors();
-        $this->view->showAutors($autores);
+        $irAndRol = $this->authHelper->returnUserIdAndRol();
+        $this->view->showAutors($autores, $irAndRol);
     }
 
     function showBooksByAutor($Id_autor){

@@ -11,10 +11,10 @@ class LibrosView{
     function showHomeLocation(){
         header("Location: ".BASE_URL."home");
     }
-    function showHome($books, $genero, $rol){
+    function showHome($books, $genero, $rolAndId){
         $this->smarty->assign('genero', $genero);
         $this->smarty->assign('books', $books);
-        $this->smarty->assign('rol',$rol);
+        $this->smarty->assign('rolAndId',$rolAndId);
         $this->smarty->display('templates/libros.tpl');
     }
     function showBooks($books){

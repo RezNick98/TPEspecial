@@ -78,6 +78,7 @@ switch ($params[0]) {
         $adminController->removeAdmin($params[1]);
         break;
     case 'guest':
+        $userController->createAccountGuest();
         break;
         echo ('ERROR 404 not found');
         break;

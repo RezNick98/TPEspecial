@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-26 22:57:40
+/* Smarty version 3.1.39, created on 2021-11-28 19:44:08
   from 'C:\xampp\htdocs\Tpe 2 web\TPEspecial\templates\autors.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61a1585418b8e3_35400746',
+  'unifunc' => 'content_61a3cdf86ff387_90069203',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5d16e7c3fc9158eb069f04f9874fae74539e0268' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Tpe 2 web\\TPEspecial\\templates\\autors.tpl',
-      1 => 1637963859,
+      1 => 1638125047,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_61a1585418b8e3_35400746 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61a3cdf86ff387_90069203 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -32,7 +32,9 @@ $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cach
             <th>Nombre</th>
             <th>Apellido</th>
             <th><hr/></th>
-            <th>Eliminar</th>
+            <?php if ($_smarty_tpl->tpl_vars['idAndRol']->value[1] == 1) {?>
+                <th>Eliminar</th>
+            <?php }?>
         </thead>
         <tbody>
         <?php
@@ -50,8 +52,10 @@ $_smarty_tpl->tpl_vars['item']->do_else = false;
 </td>
                 <td> <a class="btn btn-info" href="autorLibros/<?php echo $_smarty_tpl->tpl_vars['item']->value->Id_autor;?>
 ">Leer mas...</a> </td>
-                <td> <a class="btn btn-danger" href="eliminarAutor/<?php echo $_smarty_tpl->tpl_vars['item']->value->Id_autor;?>
+                <?php if ($_smarty_tpl->tpl_vars['idAndRol']->value[1] == 1) {?>
+                    <td> <a class="btn btn-danger" href="eliminarAutor/<?php echo $_smarty_tpl->tpl_vars['item']->value->Id_autor;?>
 ">Eliminar</a> </td>
+                <?php }?>
             </tr>
         <?php
 }
@@ -59,20 +63,22 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </tbody>
 </table>
 
-<h2>Registre un nuevo autor</h2>
-
-<form action="agregarAutor" method="POST">
-         <label>Nombre: </label><input type="text" name="Nombre">
+<?php if ($_smarty_tpl->tpl_vars['idAndRol']->value[1] == 1) {?>
+     
+    <h2>Registre un nuevo autor</h2>
+    
+    <form action="agregarAutor" method="POST">
+    <label>Nombre: </label><input type="text" name="Nombre">
+    <label>Apellido: </label> <input type="text" name="Apellido">
+    <input class="btn btn-success" type="submit" value="Enviar">
+    </form>
+    
+    <h2>Modifique un autor existente</h2>
+    
+    <form action="updateBook" method="POST">
+    <label>Nombre: </label><input type="text" name="Nombre">
         <label>Apellido: </label> <input type="text" name="Apellido">
-        <input class="btn btn-success" type="submit" value="Enviar">
-</form>
-
-<h2>Modifique un autor existente</h2>
-
-<form action="updateBook" method="POST">
-         <label>Nombre: </label><input type="text" name="Nombre">
-        <label>Apellido: </label> <input type="text" name="Apellido">
-    <select name="select">
+        <select name="select">
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['items']->value, 'item');
 $_smarty_tpl->tpl_vars['item']->do_else = true;
@@ -86,10 +92,13 @@ $_smarty_tpl->tpl_vars['item']->do_else = false;
         <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-    </select>
+        </select>
         <input class="btn btn-success" type="submit" value="Modificar">
-</form>
+        </form>
+    
+<?php }?>
 
+<a href="home" class="btn btn-primary mt-5">Volver</a>
 
 <?php $_smarty_tpl->_subTemplateRender("file:templates/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }

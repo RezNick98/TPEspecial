@@ -17,8 +17,8 @@ class LibrosController{
     function showHome(){
         $genero = $this->modelLibros->getGenProm();
         $books = $this->modelLibros->getBooks();
-        $rol = $this->authHelper->checkRol();
-        $this->view->showHome($books, $genero,$rol);
+        $rolAndId = $this->authHelper->returnUserIdAndRol();
+        $this->view->showHome($books, $genero, $rolAndId);
     }
     function showBooksByTabla($id_libro){
         $item = $this->modelLibros->getBook($id_libro);

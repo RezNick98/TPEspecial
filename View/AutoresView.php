@@ -8,8 +8,9 @@ class AutoresView{
         $this->smarty = new Smarty();
     }
 
-    function showAutors($items){
+    function showAutors($items, $idAndRol){
         $this->smarty->assign('items',$items);
+        $this->smarty->assign('idAndRol', $idAndRol);
         $this->smarty->display('templates/autors.tpl');
     }
 
