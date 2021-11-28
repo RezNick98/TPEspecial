@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-27 21:06:32
+/* Smarty version 3.1.39, created on 2021-11-28 15:40:17
   from 'C:\xampp\htdocs\TPEspecial\templates\libro.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61a28fc83b47a0_31162337',
+  'unifunc' => 'content_61a394d1709be3_24835374',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '1c9d2217220e7b2c00c5f20ed27d63f085e9eccf' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEspecial\\templates\\libro.tpl',
-      1 => 1638043588,
+      1 => 1638082181,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footerJS.tpl' => 1,
   ),
 ),false)) {
-function content_61a28fc83b47a0_31162337 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61a394d1709be3_24835374 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -45,7 +45,8 @@ $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cach
     <hr>
 
     <form id="form-comentarios" data-id_libros="<?php echo $_smarty_tpl->tpl_vars['item']->value->id_libros;?>
-" data-id_usuario="<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+" data-id_usuario="<?php echo $_smarty_tpl->tpl_vars['user']->value[0];?>
+" data-rol="<?php echo $_smarty_tpl->tpl_vars['user']->value[1];?>
 " class="formulario-comentarios">
         <p>
             Comentario:  <input type="text" name="comentario" id="comentario" value="" placeholder="Comentario.." required>

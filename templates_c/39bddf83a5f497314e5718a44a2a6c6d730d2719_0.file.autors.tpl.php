@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-26 23:16:18
+/* Smarty version 3.1.39, created on 2021-11-28 15:49:45
   from 'C:\xampp\htdocs\TPEspecial\templates\autors.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61a15cb2bde1c7_43832007',
+  'unifunc' => 'content_61a397091db317_63437243',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '39bddf83a5f497314e5718a44a2a6c6d730d2719' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEspecial\\templates\\autors.tpl',
-      1 => 1637964639,
+      1 => 1638110983,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_61a15cb2bde1c7_43832007 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61a397091db317_63437243 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -89,7 +89,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     </select>
         <input class="btn btn-success" type="submit" value="Modificar">
 </form>
-
+<a href="home" class="btn btn-primary mt-5">Volver</a>
 
 <?php $_smarty_tpl->_subTemplateRender("file:templates/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }

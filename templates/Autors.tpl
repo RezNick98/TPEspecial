@@ -41,6 +41,6 @@
     </select>
         <input class="btn btn-success" type="submit" value="Modificar">
 </form>
-
+<a href="home" class="btn btn-primary mt-5">Volver</a>
 
 {include file="templates/footer.tpl"}
