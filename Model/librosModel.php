@@ -8,7 +8,7 @@ class LibrosModel
         $this->dbLibros =new PDO('mysql:host=localhost;'.'dbname=db_TPEspecial;charset=utf8', 'root', '');
     }
     function getBooks(){
-        $query = $this->dbLibros->prepare("SELECT  a.Nombre,a.Apellido,a.Id_autor,b.Titulo,b.Genero,b.Descripcion,b.id_libros,b.fk_Id_autor FROM Autores a INNER JOIN Libros b ON a.Id_autor = b.fk_Id_autor");
+        $query = $this->dbLibros->prepare("SELECT * FROM Libros INNER JOIN Autores ON Libros.fk_Id_autor = Autores.Id_autor");
         $query->execute();
         $books = $query->fetchAll(PDO::FETCH_OBJ);
         return $books;
