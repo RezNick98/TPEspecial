@@ -47,6 +47,7 @@
     </tbody>
 </table>
 
+<<<<<<< HEAD
 {if $rolAndId[1] == 1}
 
     <form action="agregarLibro" method="POST">
@@ -74,5 +75,31 @@
             <input class="btn btn-success" type="submit" value="Modificar">
     </form>
 {/if}
+=======
+<form action="agregarLibro" method="POST">
+         <label>Titulo: </label><input type="text" name="titulo">
+        <label>Genero: </label> <input type="text" name="genero">
+        <label>Descripcion: </label> <textarea name="texto"cols="30" rows="1"></textarea>
+        <label>Numero del autor</label>
+    <select name="select">
+        {foreach from=$books item=$book}    
+            <option>{$book->fk_Id_autor}</option>
+        {/foreach}
+    </select>
+        <input class="btn btn-success" type="submit" value="Enviar">
+</form>
+
+<form action="updateBook" method="POST">
+         <label>TItulo: </label><input type="text" name="titulo">
+        <label>Genero: </label> <input type="text" name="genero">
+        <label>Descripcion: </label> <textarea name="texto"cols="30" rows="1"></textarea>
+    <select name="select">
+        {foreach from=$books item=$book}    
+            <option>{$book->Titulo}</option>
+        {/foreach}
+    </select>
+        <input class="btn btn-success" type="submit" value="Modificar">
+</form>
+>>>>>>> e151cbb1b4156017e2c0b22a58dc68a4b86d9834
 
 {include file="templates/footer.tpl"}
