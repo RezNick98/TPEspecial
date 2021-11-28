@@ -22,9 +22,8 @@ class UserController
     }
     function logout(){
         $idAndRol = $this->authHelper->returnUserIdAndRol();
-
-        $id = $idAndRol[0];
-        $rol = $idAndRol[1];
+        $id = $idAndRol;
+        $rol = $idAndRol;
 
         if($rol == -1 && $rol != null){
             $this->userModel->deleteUser($id);

@@ -25,7 +25,6 @@ class LibrosView{
         $this->smarty->assign('autors', $autors);
         $this->smarty->display('templates/libros.tpl');
     }
-    
     function showBook($item, $user){
         $this->smarty->assign('item',$item);
         $this->smarty->assign('user', $user);

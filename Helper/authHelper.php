@@ -52,7 +52,7 @@ class AuthHelper{
             $idAndRol = [];
             $idAndRol[0] = $_SESSION['id_usuario'];
             $idAndRol[1] = $_SESSION['admin'];
+            return $idAndRol;
         }
-        return $idAndRol;
     }
 }
