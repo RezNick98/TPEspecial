@@ -22,9 +22,9 @@ class UserModel
         $user = $sentencia->fetch(PDO::FETCH_OBJ);
         return $user;
     }
-        function getUser($Nombreusuario){
-        $sentencia = $this->dbUser->prepare("SELECT * FROM usuario WHERE Nombreusuario = ?");
-        $sentencia->execute([$Nombreusuario]);
+        function getUser($Nombreusuario, $Email){
+        $sentencia = $this->dbUser->prepare("SELECT * FROM usuario WHERE Nombreusuario = ? AND Email = ?");
+        $sentencia->execute(array($Nombreusuario, $Email));
         $user = $sentencia->fetch((PDO::FETCH_OBJ));
         return $user;
 

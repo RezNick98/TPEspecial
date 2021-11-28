@@ -2,11 +2,9 @@
 
 console.log("hola");
 
-const url = `http://localhost/TPEspecial/api/comentarios`;
+const url = `http://localhost/Tpe%202%20web/TPEspecial/api/comentarios`;
 const form_comentarios = document.getElementById("form-comentarios");
 
-let prueba = form_comentarios.getAttribute('data-id_usuario');
-console.log(prueba);
 form_comentarios.addEventListener("submit", noEnvia);
 
 function noEnvia(){
@@ -19,8 +17,9 @@ getComentarios(url);
 async function getComentarios(url){
     try{
         let idLibro = form_comentarios.getAttribute('data-id_libros');
-        let idUsuario = form_comentarios.getAttribute('data-id_usuario');
+        let rol = form_comentarios.getAttribute('data-rol');
             console.log(idLibro);
+            console.log(rol)
         let res = await fetch(`${url}/${idLibro}`);
         if(res.status == 200){
             console.log(res);
@@ -34,7 +33,7 @@ async function getComentarios(url){
                 let comentarioString = comentario.Comentario;
                 let puntaje = comentario.Puntaje;
                 let id = comentario.Id_librofk;
-                if(idUsuario > 0){
+                if(rol < 1){
                     section.innerHTML += 
                     `
                     <thead>

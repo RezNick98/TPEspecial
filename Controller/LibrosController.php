@@ -21,9 +21,9 @@ class LibrosController{
         $this->view->showHome($books, $genero,$rol);
     }
     function showBooksByTabla($id_libro){
-        $id = $this->authHelper->returnUserId();
         $item = $this->modelLibros->getBook($id_libro);
-        $this->view->showBook($item, $id);
+        $user = $this->authHelper->returnUserIdAndRol();
+        $this->view->showBook($item, $user);
     }
     function showBooksByGenero($genero){
         $gen = $this->modelLibros->getLibrosGenero($genero);

@@ -29,7 +29,7 @@ class UserController
             $username = $_POST['Nombreusuario'];
             
             $this->userModel->createUser($userEmail, $Password,$username);
-            $user = $this->userModel->getUser($userEmail);
+            $user = $this->userModel->getUser($username, $userEmail);
             
             session_start();
             $_SESSION['email'] = $userEmail;
@@ -47,7 +47,7 @@ class UserController
         $Password=$_POST['Password'];
         $usuario = $_POST['Nombreusuario'];
         $userMail = $this->userModel->getUserMail($Email);
-        $user = $this->userModel->getUser($usuario);
+        $user = $this->userModel->getUser($usuario, $Email);
         if(!empty($_POST['Email']) && !empty($_POST['Password']) && !empty($_POST['Nombreusuario'])){
             if($user && $userMail && password_verify ($Password ,($user->Password ))){
                 session_start();

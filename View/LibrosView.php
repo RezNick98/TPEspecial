@@ -26,9 +26,9 @@ class LibrosView{
         $this->smarty->display('templates/libros.tpl');
     }
     
-    function showBook($item, $id){
-        $this->smarty->assign('id', $id);
+    function showBook($item, $user){
         $this->smarty->assign('item',$item);
+        $this->smarty->assign('user', $user);
         $this->smarty->display('templates/libro.tpl');
     }
     function showBooksGenero($genero){

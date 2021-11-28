@@ -2,19 +2,17 @@
 require_once 'Controller/AutoresController.php';
 require_once 'Controller/LibrosController.php';
 require_once 'Controller/UserController.php';
-require_once 'Controller/GuestController.php';
 require_once 'Controller/AdminController.php';
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':'.$_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 if(!empty($_GET['action'])){
     $action = $_GET['action'];
 }else{
-    $action='home';
+    $action='login';
 }
 
 $AutoresController = new AutoresController();
 $LibrosController = new LibrosController();
 $userController=new UserController();
-$guestController = new GuestController();
 $adminController = new AdminController();
 $params = explode('/',$action);
 var_dump($params);
@@ -67,18 +65,6 @@ switch ($params[0]) {
     case 'eliminarAutor':
         $AutoresController->eliminarAutor($params[1]);
         break;
-    case 'guest':
-        $guestController->showHome();
-        break;
-    case 'guestLibro':
-        $guestController->showBooksByAutor($params[1]);
-        break;
-    case 'guestGenres':
-        $guestController->showBooksByGenero($params[1]);
-        break;
-    case 'guestBook':
-        $guestController->showBooksByTabla($params[1]);
-        break;
     case 'adminView':
         $adminController->showAdmin();
         break;
@@ -91,8 +77,8 @@ switch ($params[0]) {
     case 'removeAdmin':
         $adminController->removeAdmin($params[1]);
         break;
-    
-    default:
+    case 'guest':
+        break;
         echo ('ERROR 404 not found');
         break;
 }

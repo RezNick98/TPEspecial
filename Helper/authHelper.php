@@ -7,6 +7,15 @@ class AuthHelper{
             die();
         }
     }
+    function adminDeleteUser($id){
+        session_start();
+        if(isset($_SESSION['id_usuario'])){
+            if($_SESSION['id_usuario'] == $id){
+                header("Location:".BASE_URL."login");
+                die(); 
+            }
+        }
+    }
     function checkRol(){
         session_start();
         if(isset($_SESSION['Email']) && ($_SESSION['admin']==1)){
@@ -37,11 +46,13 @@ class AuthHelper{
             return $rol;
         }
     }
-    function returnUserId(){
+    function returnUserIdAndRol(){
         session_start();
-        if(isset($_SESSION['id_usuario'])){
-            $idUsuario = $_SESSION['id_usuario'];
-            return $idUsuario;
+        if(isset($_SESSION['id_usuario']) && isset($_SESSION['admin'])){
+            $idAndRol = [];
+            $idAndRol[0] = $_SESSION['id_usuario'];
+            $idAndRol[1] = $_SESSION['admin'];
         }
+        return $idAndRol;
     }
 }

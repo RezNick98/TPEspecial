@@ -15,7 +15,7 @@
 
     <hr>
 
-    <form id="form-comentarios" data-id_libros="{$item->id_libros}" data-id_usuario="{$id}" class="formulario-comentarios">
+    <form id="form-comentarios" data-id_libros="{$item->id_libros}" data-id_usuario="{$user[0]}" data-rol="{$user[1]}" class="formulario-comentarios">
         <p>
             Comentario:  <input type="text" name="comentario" id="comentario" value="" placeholder="Comentario.." required>
             Puntaje: <input type="number" name="puntaje" id="puntaje" value="" placeholder="Puntaje" min="1" max="5">
