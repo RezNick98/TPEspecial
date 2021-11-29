@@ -7,7 +7,7 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':'.$_SERVER['SERVER_PORT'] . 
 if(!empty($_GET['action'])){
     $action = $_GET['action'];
 }else{
-    $action='login';
+    $action='home';
 }
 
 $AutoresController = new AutoresController();
