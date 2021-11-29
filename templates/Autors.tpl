@@ -30,14 +30,14 @@
     <h2>Registre un nuevo autor</h2>
     
     <form action="agregarAutor" method="POST">
-    <label>Nombre: </label><input type="text" name="Nombre">
-    <label>Apellido: </label> <input type="text" name="Apellido">
-    <input class="btn btn-success" type="submit" value="Enviar">
+        <label>Nombre: </label><input type="text" name="Nombre">
+        <label>Apellido: </label> <input type="text" name="Apellido">
+        <input class="btn btn-success" type="submit" value="Enviar">
     </form>
     
     <h2>Modifique un autor existente</h2>
     
-    <form action="updateBook" method="POST">
+    <form action="modificarAutor" method="POST">
     <label>Nombre: </label><input type="text" name="Nombre">
         <label>Apellido: </label> <input type="text" name="Apellido">
         <select name="select">
@@ -46,7 +46,7 @@
         {/foreach}
         </select>
         <input class="btn btn-success" type="submit" value="Modificar">
-        </form>
+    </form>
     
 {/if}
 

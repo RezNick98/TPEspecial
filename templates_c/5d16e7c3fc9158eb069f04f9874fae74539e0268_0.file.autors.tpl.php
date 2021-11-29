@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-28 19:44:08
+/* Smarty version 3.1.39, created on 2021-11-29 01:00:27
   from 'C:\xampp\htdocs\Tpe 2 web\TPEspecial\templates\autors.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61a3cdf86ff387_90069203',
+  'unifunc' => 'content_61a4181b8a48d5_81396547',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '5d16e7c3fc9158eb069f04f9874fae74539e0268' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Tpe 2 web\\TPEspecial\\templates\\autors.tpl',
-      1 => 1638125047,
+      1 => 1638144026,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_61a3cdf86ff387_90069203 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61a4181b8a48d5_81396547 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -68,14 +68,14 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <h2>Registre un nuevo autor</h2>
     
     <form action="agregarAutor" method="POST">
-    <label>Nombre: </label><input type="text" name="Nombre">
-    <label>Apellido: </label> <input type="text" name="Apellido">
-    <input class="btn btn-success" type="submit" value="Enviar">
+        <label>Nombre: </label><input type="text" name="Nombre">
+        <label>Apellido: </label> <input type="text" name="Apellido">
+        <input class="btn btn-success" type="submit" value="Enviar">
     </form>
     
     <h2>Modifique un autor existente</h2>
     
-    <form action="updateBook" method="POST">
+    <form action="modificarAutor" method="POST">
     <label>Nombre: </label><input type="text" name="Nombre">
         <label>Apellido: </label> <input type="text" name="Apellido">
         <select name="select">
@@ -94,7 +94,7 @@ $_smarty_tpl->tpl_vars['item']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <input class="btn btn-success" type="submit" value="Modificar">
-        </form>
+    </form>
     
 <?php }?>
 

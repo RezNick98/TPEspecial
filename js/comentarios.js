@@ -2,7 +2,7 @@
 
 console.log("hola");
 
-const url = `http://localhost/TPEspecial/api/comentarios`;
+const url = `http://localhost/Tpe%202%20web/TPEspecial/api/comentarios`;
 const form_comentarios = document.getElementById("form-comentarios");
 
 form_comentarios.addEventListener("submit", noEnvia);

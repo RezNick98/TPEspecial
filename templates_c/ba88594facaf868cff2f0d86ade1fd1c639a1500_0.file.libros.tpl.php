@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-28 20:51:26
+/* Smarty version 3.1.39, created on 2021-11-29 01:06:13
   from 'C:\xampp\htdocs\Tpe 2 web\TPEspecial\templates\libros.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61a3ddbecd3050_69224184',
+  'unifunc' => 'content_61a41975773293_86412857',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ba88594facaf868cff2f0d86ade1fd1c639a1500' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Tpe 2 web\\TPEspecial\\templates\\libros.tpl',
-      1 => 1638127630,
+      1 => 1638144131,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_61a3ddbecd3050_69224184 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61a41975773293_86412857 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_checkPlugins(array(0=>array('file'=>'C:\\xampp\\htdocs\\Tpe2web\\TPEspecial\\libs\\smarty-3.1.39\\libs\\plugins\\modifier.truncate.php','function'=>'smarty_modifier_truncate',),));
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -97,6 +97,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 <?php if ($_smarty_tpl->tpl_vars['rolAndId']->value[1] == 1) {?>
 
+    <h2>Registre un nuevo libro</h2>
+
     <form action="agregarLibro" method="POST">
             <label>TItulo: </label><input type="text" name="titulo">
             <label>Genero: </label> <input type="text" name="genero">
@@ -104,13 +106,14 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
             <label>Numero del autor</label>
         <select name="select">
             <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['books']->value, 'book');
-$_smarty_tpl->tpl_vars['book']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['book']->value) {
-$_smarty_tpl->tpl_vars['book']->do_else = false;
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['autors']->value, 'autor');
+$_smarty_tpl->tpl_vars['autor']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['autor']->value) {
+$_smarty_tpl->tpl_vars['autor']->do_else = false;
 ?>    
-                <option value="<?php echo $_smarty_tpl->tpl_vars['book']->value->fk_Id_autor;?>
-"><?php echo $_smarty_tpl->tpl_vars['book']->value->Id_autor;?>
+                <option value="<?php echo $_smarty_tpl->tpl_vars['autor']->value->Id_autor;?>
+"><?php echo $_smarty_tpl->tpl_vars['autor']->value->Nombre;?>
+ <?php echo $_smarty_tpl->tpl_vars['autor']->value->Apellido;?>
 </option>
             <?php
 }
@@ -118,6 +121,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
             <input class="btn btn-success" type="submit" value="Enviar">
     </form>
+
+    <h2>Modifique un libro existe</h2>
 
     <form action="updateBook" method="POST">
             <label>TItulo: </label><input type="text" name="titulo">
@@ -132,6 +137,7 @@ $_smarty_tpl->tpl_vars['book']->do_else = false;
 ?>    
                 <option value="<?php echo $_smarty_tpl->tpl_vars['book']->value->id_libros;?>
 "><?php echo $_smarty_tpl->tpl_vars['book']->value->Titulo;?>
+ : <?php echo $_smarty_tpl->tpl_vars['book']->value->Genero;?>
 </option>
             <?php
 }

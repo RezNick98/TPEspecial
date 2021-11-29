@@ -15,7 +15,6 @@ $LibrosController = new LibrosController();
 $userController=new UserController();
 $adminController = new AdminController();
 $params = explode('/',$action);
-var_dump($params);
 switch ($params[0]) {
     case 'login':
         $userController->login();

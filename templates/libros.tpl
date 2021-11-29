@@ -49,18 +49,22 @@
 
 {if $rolAndId[1] == 1}
 
+    <h2>Registre un nuevo libro</h2>
+
     <form action="agregarLibro" method="POST">
             <label>TItulo: </label><input type="text" name="titulo">
             <label>Genero: </label> <input type="text" name="genero">
             <label>Descripcion: </label> <textarea name="texto"cols="30" rows="1"></textarea>
             <label>Numero del autor</label>
         <select name="select">
-            {foreach from=$books item=$book}    
-                <option value="{$book->fk_Id_autor}">{$book->Id_autor}</option>
+            {foreach from=$autors item=$autor}    
+                <option value="{$autor->Id_autor}">{$autor->Nombre} {$autor->Apellido}</option>
             {/foreach}
         </select>
             <input class="btn btn-success" type="submit" value="Enviar">
     </form>
+
+    <h2>Modifique un libro existe</h2>
 
     <form action="updateBook" method="POST">
             <label>TItulo: </label><input type="text" name="titulo">
@@ -68,7 +72,7 @@
             <label>Descripcion: </label> <textarea name="texto"cols="30" rows="1"></textarea>
         <select name="select">
             {foreach from=$books item=$book}    
-                <option value="{$book->id_libros}">{$book->Titulo}</option>
+                <option value="{$book->id_libros}">{$book->Titulo} : {$book->Genero}</option>
             {/foreach}
         </select>
             <input class="btn btn-success" type="submit" value="Modificar">

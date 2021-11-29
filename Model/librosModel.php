@@ -19,6 +19,12 @@ class LibrosModel
         $book = $sentencia->fetch(PDO::FETCH_OBJ);
         return $book;
     }
+    function getBookWithAtributte($titulo, $genero, $id_autor){
+        $sentencia = $this->dbLibros->prepare("SELECT * FROM Libros WHERE Titulo = ? AND Genero = ? AND fk_Id_autor = ?");
+        $sentencia->execute(array($titulo, $genero, $id_autor));
+        $books = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        return $books;
+    }
     function getGenProm(){
         $sentencia = $this->dbLibros->prepare("SELECT Genero, COUNT(*) AS total FROM Libros GROUP BY genero");
         $sentencia->execute();

@@ -22,8 +22,8 @@ class AutoresModel{
         $sentencia->execute(array($nombre, $apellido));
     }
     function modificarAutor($nombre, $apellido, $Id_autor){
-        $sentencia = $this->dbAutores->prepare("UPDATE Autores SET Nombre = '$nombre', Apellido = '$apellido' WHERE Id_autor = $Id_autor");
-        $sentencia->execute();
+        $sentencia = $this->dbAutores->prepare("UPDATE Autores SET Nombre = ?, Apellido = ? WHERE Id_autor = ?");
+        $sentencia->execute(array($nombre, $apellido, $Id_autor));
     }
     function eliminarAutor($Id_autor){
         $sentencia = $this->dbAutores->prepare("DELETE FROM Autores WHERE Id_autor=?");

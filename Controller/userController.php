@@ -22,8 +22,8 @@ class UserController
     }
     function logout(){
         $idAndRol = $this->authHelper->returnUserIdAndRol();
-        $id = $idAndRol;
-        $rol = $idAndRol;
+        $id = $idAndRol[0];
+        $rol = $idAndRol[1];
 
         if($rol == -1 && $rol != null){
             $this->userModel->deleteUser($id);
@@ -65,7 +65,7 @@ class UserController
         $_SESSION['email'] = $userEmail;
         $_SESSION['admin'] = $user->admin;
         $_SESSION['id_usuario'] = $user->Id_usuario;
-        $this->loginView->showHome();
+        $this->verifyLoginGuest($userEmail, $Password, $username, $admin);
     }
     function register(){
         $this->registerView->showRegister();
@@ -82,6 +82,22 @@ class UserController
                 $_SESSION["Email"]=$Email;
                 $_SESSION["Nombreusuario"]=$user;
                 $_SESSION['admin'] = $user->admin;
+                $_SESSION['id_usuario'] = $user->Id_usuario;
+                $this->loginView->showHome();
+            }else{
+                $this->loginView->showLogin("Acceso denegado");
+            }
+        }
+    }
+    function verifyLoginGuest($userEmail, $Password, $username, $admin){
+        $userMail = $this->userModel->getUserMail($userEmail);
+        $user = $this->userModel->getUser($username, $userEmail);
+        if(!empty($userEmail) && !empty($Password) && !empty($username)){
+            if($user && $userMail && password_verify ($Password ,($user->Password ))){
+                session_start();
+                $_SESSION["Email"]= $userEmail;
+                $_SESSION["Nombreusuario"]= $username;
+                $_SESSION['admin'] = $admin;
                 $_SESSION['id_usuario'] = $user->Id_usuario;
                 $this->loginView->showHome();
             }else{

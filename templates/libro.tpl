@@ -26,8 +26,8 @@
         </form>
         
         <section>
-            <button id="descendente">Ordenar de manera descendente</button>
-            <button id="ascendente">Ordenar de manera ascendente</button>
+            <button class="btn btn-primary mt-5" id="descendente">Ordenar de manera descendente</button>
+            <button class="btn btn-primary mt-5" id="ascendente">Ordenar de manera ascendente</button>
             Filtrar por Puntaje<input type="number" id="filtroPuntaje"> <button id="btn-filtro">Filtrar</button>
             <table id="comentarios-section">
         

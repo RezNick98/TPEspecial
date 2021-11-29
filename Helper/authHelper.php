@@ -2,7 +2,7 @@
 class AuthHelper{
     function checkAdminLoggedIn(){
         session_start();
-        if($_SESSION['admin']!=1){
+        if($_SESSION['Email'] == null){
             header("Location:".BASE_URL."login");
             die();
         }
@@ -47,7 +47,7 @@ class AuthHelper{
         }
     }
     function returnUserIdAndRol(){
-        session_start();
+        $this->checkAdminLoggedIn();
         if(isset($_SESSION['id_usuario']) && isset($_SESSION['admin'])){
             $idAndRol = [];
             $idAndRol[0] = $_SESSION['id_usuario'];

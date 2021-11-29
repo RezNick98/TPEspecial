@@ -12,7 +12,7 @@ class UserModel
         $sentencia->execute([$Email,$Password,$Nombreusuario]);
     }
     function createUserGuest($Email, $Password, $Nombreusuario, $admin){
-        $Password= password_hash($_POST['Password'],PASSWORD_BCRYPT);
+        $Password= password_hash($Password ,PASSWORD_BCRYPT);
         $sentencia = $this->dbUser->prepare("INSERT INTO usuario(Email,Password,Nombreusuario,admin) VALUES(?, ?, ?, ?)");
         $sentencia->execute([$Email,$Password, $Nombreusuario, $admin]);
     }
